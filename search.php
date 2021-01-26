@@ -11,9 +11,7 @@ Template Name: Index Template
 
         <section>
 
-            <h2>This is the index template.</h2>
-
-            <p>This is where the catch all template lives and serves as the site home page. </p>
+            <h2>This is the Search template.</h2>           
 
             <!-- Start the Loop. -->
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -22,7 +20,7 @@ Template Name: Index Template
                
             <?php endwhile; else : ?>
 
-                <p>Unfortunately there is no content to display Please add a new post or try a new search.</p>
+                <p>Unfortunately there is no content to display Please try a new search.</p>
 
                 <p> <?php get_search_form(); ?> </p>
 
