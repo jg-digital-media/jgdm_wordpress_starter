@@ -1,12 +1,15 @@
-# Setting up your WordPress theme.  - **Last Update:** 26-01-2021
+# Setting up your WordPress theme.  - **Last Update:** 16-02-2021
 
 ## This Repository contains the theme files you will need to help you get started building your own WordPress Theme
+
++ **Theme Name:** jgdm_wordpress_starter
++ **Updated** 16-02-2021 
 
 ## Version 1.0.0
 
 ## Setup: 
 
-Link: http://localhost/wordpress/subdomain/ | https://wordpress.jonniegrieve.co.uk
+Link: http://localhost/wordpress/subdomain/ 
 
 + Your theme will need to be uploaded to a WordPress installation.
 
