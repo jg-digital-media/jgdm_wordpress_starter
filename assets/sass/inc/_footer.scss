@@ -1,0 +1,19 @@
+//footer.scss
+footer {
+    background: $bg-primary;
+    color: $col-secondary;
+    margin-top: 10px;
+    height: 400px;
+
+    /* min-height: calc(1vh - 595px); */ }
+    footer p {
+      font-weight: bold;
+      text-align: center;
+      vertical-align: middle;
+      color: $link-col-secondary; 
+    }
+      footer p a {
+        color: $link-col-secondary; }
+        footer p a:hover {
+          text-decoration: none;
+          color: $link-hov-secondary; }

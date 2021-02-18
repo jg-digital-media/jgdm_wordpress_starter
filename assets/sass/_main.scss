@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0; 
+}
+  
+body {
+    background: $bg-secondary;
+    font-family: $font-one;
+}
+
+#container {
+    min-height: calc(100vh - 400px);
+    /* min-height: calc(100vh - 0px); */
+    /* height: 400px; */
+    height: auto;
+    /*  height: calc(100vh - 800px); */
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80%;
+    margin: 10px auto; 
+    
+    @media (max-width: 760px) {
+        width: 95%;
+    } 
+
+}

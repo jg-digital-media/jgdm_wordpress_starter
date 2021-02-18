@@ -1,0 +1,42 @@
+//
+
+//Extends
+
+%list_links {           
+
+    a {
+        color: $link-col-primary;
+        margin-left: 10px;
+        /* font-weight: bold; */
+        font-weight: normal;
+    
+        &:hover {
+            
+            color: $link-hov-primary;
+            text-decoration: none;
+
+        }
+    }
+
+}
+
+%search_btn {
+    
+        background: #456554;
+        padding: 10px;
+        width: 100px;
+        color: white; 
+        cursor: pointer;
+        transition: background .3s;
+
+        &:hover {
+            background: #30473b;
+        }
+}
+
+%goto_page {
+    color: red;
+    margin: 10px 0;
+    display: block;
+    text-align: center;
+}

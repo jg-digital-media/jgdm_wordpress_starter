@@ -1,0 +1,69 @@
+ 
+  /*
+  *
+  * WordPress Specific Styles
+  */
+
+    section figure.wp-block-image img {
+        display: block;
+        width: 75%;
+        margin: 0 auto; 
+
+        @media (max-width: 760px) {
+            width: 90%; 
+        }
+    }
+  
+    input#s {
+        height: 35px;
+        /* background: lightblue; */
+        background: white;
+        padding: 0 10px;
+        border-radius: 10px;
+        letter-spacing: 2px;
+        font-size: 13pt;
+        transition: background .3s, color .3s;
+
+        &:hover {
+            
+            /* background: darkblue; */
+            background: #f4e17a;
+            /* color: #f4e17a; */
+            color: black;
+        }
+    }
+  
+    input#searchsubmit {
+        /* height: 30px; */ 
+    }
+  
+    .screen-reader-text {
+        font-weight: bold; 
+    }
+  
+    .widget_search {
+        margin-top: 20px;
+        /* height: 30px; */
+        list-style: none; 
+        li {
+            list-style: none; 
+            
+            h2.widgettitle {
+                height: 20px;
+            }
+        } 
+    }
+
+    .widget_area {
+        li {
+            h2 {
+                color: black;
+                font-size: 20px;
+            }
+        }
+    }
+  
+    #searchsubmit {
+
+        @extend %search_btn;
+    }

@@ -9,31 +9,29 @@ Template Name: Archive Date Template
 
 <?php require("template-parts/header.php"); ?>
 
-        <section>
+        <section class="primary">
 
-                <h2> List for <strong><?php echo the_archive_title(); ?></strong> </h2>
+                <p> date.php</p>
+
+                <p> <a href="<?php echo get_site_url() . "/article"; ?>" class="goto_page" id="back_to_articles">Back to Main List</a> </p> 
+
+                <h2> List for... <strong><?php echo the_archive_title(); ?></strong> </h2>
 
                 <hr />
-
-                <a href="<?php echo get_template_directory_uri() . "/articles"; ?>" id="back_to_articles">Back to Main List</a>
-
-                <hr />
-
-                <h2>Articles this month/year</h2>
                 
                 <!-- Start the Loop. -->
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
                         <p>Article: <a href="<?php the_permalink() ?>"><?php echo the_title(); ?></a></p>
 
                         <?php endwhile; else : ?>
 
-                        //
+                        <p>No content available for this archive.</p>
 
                         <?php endif; ?> 
 
-                <hr />
-                
-                <h2>Content</h2>
+                <hr />                              
+
                 <!-- Start the Loop. -->
                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 

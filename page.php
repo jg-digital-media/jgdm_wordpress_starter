@@ -10,19 +10,26 @@ Template Name: Page Template
 
 <?php require("template-parts/header.php"); ?>
 
-        <section>
+        <section class="primary">
 
-            <h2><?php the_title(); ?> </h2>
+            <p>page.php</p>
 
+            <p><a href="<?php echo get_site_url(); ?>/article" class="goto_page">Articles List<a></p>
+
+            <h2> <?php the_title(); ?> </h2>
+
+            <p>page.php content</p>
+
+            <!-- WordPress Loop -->
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-             <?php the_content(); ?>
+                <?php the_content(); ?>
             
 
             <?php endwhile; else: ?>
             <!-- more text here-->
 
-                <p> ggfg </p>
+                <p> There is no content to display. </p>
 
             <?php endif; ?>
 

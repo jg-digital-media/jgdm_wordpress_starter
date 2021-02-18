@@ -1,36 +1,42 @@
-# Setting up your WordPress theme.  - **Last Update:** 16-02-2021
+# Setting up your WordPress theme.  - **Last Update:** 18-02-2021
 
-## This Repository contains the theme files you will need to help you get started building your own WordPress Theme
 
-+ **Theme Name:** jgdm_wordpress_starter
-+ **Updated** 16-02-2021 
++ **Theme Name:**: JGDM WordPress Starter Repository
++ **Theme Slug**: jgdm_wordpress_starter
++ **Version**: v1 
++ **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
-## Version 1.0.0
+[To Come](#to_come)
 
 ## Setup: 
 
 Link: http://localhost/wordpress/subdomain/ 
 
-+ Your theme will need to be uploaded to a WordPress installation.
++ Your theme will need to be uploaded to a WordPress installation via WordPress.org.
 
-+ Each WordPress theme requests at least an **index.php**, a **functions.php**, a **style.css** file and a **screenshot.png**
++ Each WordPress theme requires at least an **index.php**, a **functions.php**, a **style.css** and a **screenshot.png**. 
 
 + You will need a local server via localhost or a public web host in order to house your WordPress website.
 
-+ You will need to set up a backend database to power your unique/dynamic content.
++ You will need to set up a backend database to power your unique/dynamic content; store your plugins and set up your themes.
 
-+ Feel free to switch out the included screenshot.png file with your own theme image of 800px width and 600px height.
++ Feel free to switch out the included **screenshot.png** file with your own theme image of **800px** width and **600px** height.
 
-+ Blog pages show at most **40** pages. 
++ Blog pages are currently show at most **40** pages on my installaton. You an change this setting via ```Settings ----> Reading``` in the Admin area.
 
+## How the Design works
+
++ The Width of the Primary section with the class of ```.primary``` is set to 60%.  This gives it the appearance of a central placement on the browser.
+
++ However when you add the aside element with a class of ```.secondary```, this pushes the content to the left, giving the appearance of a 2-column layout.
 
 ## Makeup and Theme Support.
 
 + The starter theme Uses Google Font: **Merriweather Sans**.
 
-+ Theme Static Files Developed in SASS/CSS and HTML.
++ The Theme static files Developed in SASS/CSS and HTML5.
 
-+ Theme built using PHP. 
++ Theme built using PHP with an empty JavaScript file included and equeued using ```functions.php```. 
 
 + Theme includes theme supports for the following
   + ```add_theme_support( 'post-thumbnails' );``` - For Featured Images
@@ -42,6 +48,7 @@ Link: http://localhost/wordpress/subdomain/
 
 + index.php 
 + page.php 
++ front-page.php
 + articles.php 
 + single.php 
 + archive.php 
@@ -52,6 +59,21 @@ Link: http://localhost/wordpress/subdomain/
 + 404.php
 + functions.php
 
+```primary-content.php``` and ```secondary-content.php```are included as template parts as well as the Theme header and footer. 
+
+
+
+# Code Snippets
+
+## Template Hierarchy
+
+WordPress templates have an order of preference for Dynamic content that is used known as the Template Hierarchy.
+
+```
+// Content to go here
+
+
+```
 
 ## Loops
 
@@ -62,13 +84,14 @@ Link: http://localhost/wordpress/subdomain/
 <?php
 
 
-    <!-- Start the Loop. -->
+    /* Start the Loop. */
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
         <?php the_content(); ?>                
         
     <?php endwhile; else : ?>
 
+        /* Content to display when no page/post content is available. */
         <p>Unfortunately there is no content to display Please add a new post or try a new search.</p>
 
         <p> <?php get_search_form(); ?> </p>
@@ -79,7 +102,7 @@ Link: http://localhost/wordpress/subdomain/
 
 ```
 
-## Menus
+## WordPress Menu Areas
 
 + in functions.php
 
@@ -151,7 +174,6 @@ function theme_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 ```
 
-
 ##  Widget Areas
 
 + Widgets Generation  - Create a Widget Area in functions.php
@@ -203,7 +225,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 <?php 
  
- <p> <?php get_search_form(); ?> </p>
+    <p> <?php get_search_form(); ?> </p>
 
  ?>
 ```
@@ -235,8 +257,8 @@ add_action( 'widgets_init', 'widget_area_one' );
 + **Yoast** - 
 
 
-
-## To come!
+<a href="#to_come"></a>
+# To come! [To come](#to_come)
 
 + Pagination
 + Custom Post Types

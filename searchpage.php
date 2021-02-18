@@ -11,6 +11,8 @@ Template Name: Search Page
 <?php require("template-parts/header.php"); ?>
 
         <section>
+
+            <p>searchpage.php</p>
         
             <h2><?php the_title(); ?> - Search Result Page</h2>        
             
