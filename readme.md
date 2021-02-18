@@ -5,7 +5,7 @@
 + **Theme Slug**: jgdm_wordpress_starter
 + **Version**: v1 
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
-
++ A complete version control history of this work is available at https://github.com/jg-digital-media/wordpress
 [To Come](#to_come)
 
 ## Setup: 
