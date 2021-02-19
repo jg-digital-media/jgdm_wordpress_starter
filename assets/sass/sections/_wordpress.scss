@@ -67,3 +67,54 @@
 
         @extend %search_btn;
     }
+
+
+    //pagination
+    .pagination {
+
+        border: solid red 1px;
+        margin-top: 10px;
+
+      
+        
+        //@extend %list_links;
+
+        .prev {
+            /* color: blue; */
+            color: green;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        .next {
+            color: green;
+            &:hover {
+                color: red;
+            }
+        }
+
+        .page-numbers {
+            color: green;
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        .page-numbers.current {
+            /* color: blue; */
+            color: black;
+            font-weight: bold;
+        }
+       
+        span {
+            display: inline-block;
+
+            
+            @extend %pagination_links;
+        }
+
+
+    }

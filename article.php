@@ -32,17 +32,29 @@ Template Name: Article List Template
 
                 <?php if ( have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
 
-                    <!-- -->   
-                    <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li>
+                    <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li>                  
                     
 
                 <?php endwhile; else: ?>
 
                     <?php echo "No Article data"; ?>
 
-                <?php endif;  ?>
+                <?php endif;  ?>      
+                
+            </ul>   
+            
+           <!-- Pagination -->
+           <div class="pagination">
+                    
+                <?php echo paginate_links(); ?>
+                
+                <p> <?php posts_nav_link(' || ','Next Items','Previous Items'); ?> </p>  
 
-            </ul>
+                <span> <?php previous_posts_link('&lt;&lt; Go to Previous page'); ?> </span> 
+                
+                <span> <?php next_posts_link('Go to Next Page &gt;&gt;'); ?> </span> 
+    
+            </div>
 
         </section>
 

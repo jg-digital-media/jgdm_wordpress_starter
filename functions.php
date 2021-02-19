@@ -80,4 +80,29 @@ function widget_area_one() {
 add_action( 'widgets_init', 'widget_area_one' );
 ?>
 
+
+
+
 <?php
+
+/**
+ * 
+ * Display Pagination Links
+ */
+
+/* 
+the_posts_pagination( array(
+    'mid_size'  => 2,
+    'prev_text' => __( 'Back', 'wordpress_starter_theme' ),
+    'next_text' => __( 'Onward', 'wordpress_starter_theme' ),
+) );
+
+function jgdm_wordpress_pagination(){
+    global $wp_query; 
+    echo paginate_links();
+}
+
+add_action( 'init', 'jgdm_wordpress_pagination' );
+apply_filters( 'paginate_links', $link ); */
+
+?>

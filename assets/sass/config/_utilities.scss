@@ -20,6 +20,17 @@
 
 }
 
+%pagination_links {   
+    
+    a {
+        color: #424d0a;
+
+        &:hover {
+            color: red;
+        }
+    }
+}
+
 %search_btn {
     
         background: #456554;

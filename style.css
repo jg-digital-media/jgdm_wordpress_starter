@@ -1,6 +1,6 @@
 /* 
 
-    Last Update: 18/02/2021 - 13:00
+    Last Update: 19/02/2021 - 11:20
     Description: Add Partial Files:
 
 */
@@ -33,6 +33,11 @@ h4.author_article_list a, li a, p a, p .article_list li a, p .authorship p a, #c
   h4.author_article_list a:hover, li a:hover, p a:hover, #container .primary ul li a:hover, #container aside.secondary .post_list li a:hover, #container aside.secondary .archived_posts li a:hover, #container aside.secondary .article_list li a:hover, #container aside.secondary .widget_area li a:hover {
     color: #424d0a;
     text-decoration: none; }
+
+.pagination span a {
+  color: #424d0a; }
+  .pagination span a:hover {
+    color: red; }
 
 #searchsubmit {
   background: #456554;
@@ -323,6 +328,29 @@ input#searchsubmit {
 .widget_area li h2 {
   color: black;
   font-size: 20px; }
+
+.pagination {
+  border: solid red 1px;
+  margin-top: 10px; }
+  .pagination .prev {
+    /* color: blue; */
+    color: green; }
+    .pagination .prev:hover {
+      color: red; }
+  .pagination .next {
+    color: green; }
+    .pagination .next:hover {
+      color: red; }
+  .pagination .page-numbers {
+    color: green; }
+    .pagination .page-numbers:hover {
+      color: red; }
+  .pagination .page-numbers.current {
+    /* color: blue; */
+    color: black;
+    font-weight: bold; }
+  .pagination span {
+    display: inline-block; }
 
 footer {
   background: black;

@@ -32,6 +32,15 @@ Template Name: Archive Template
                 <p>Loop endif - no loop content</p>
 
             <?php endif; ?>          
+            
+            <!-- Pagination -->
+            <div class="navigation">
+
+                <p> <?php posts_nav_link(' >> ','prelabel','nextlabel'); ?> </p>
+                <p> <?php next_posts_link(); ?> </p>
+                <p> <?php echo get_next_posts_link(); ?> </p>
+
+            </div>
 
         </section>
 

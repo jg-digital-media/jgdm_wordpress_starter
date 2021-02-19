@@ -1,16 +1,25 @@
-# Setting up your WordPress theme.  - **Last Update:** 18-02-2021
+# Setting up your WordPress theme.  - **Last Update:** 19-02-2021
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
 + **Version**: v1 
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
-+ A complete version control history of this work is available at https://github.com/jg-digital-media/wordpress
-[To Come](#to_come)
 
-## Setup: 
+## **Sections**
 
-Link: http://localhost/wordpress/subdomain/ 
+  + [Setup](#setup)
+
+  + [Customising the Theme](#customising-the-theme)
+
+  + [Code Snippets](#code-snippets)
+
+  + [To Come](#to-come)
+
+### **Setup:**
+[Back to Top](#sections)
+
+#### Link: http://localhost/wordpress/subdomain/ 
 
 + Your theme will need to be uploaded to a WordPress installation via WordPress.org.
 
@@ -24,13 +33,13 @@ Link: http://localhost/wordpress/subdomain/
 
 + Blog pages are currently show at most **40** pages on my installaton. You an change this setting via ```Settings ----> Reading``` in the Admin area.
 
-## How the Design works
+### How the Design works
 
 + The Width of the Primary section with the class of ```.primary``` is set to 60%.  This gives it the appearance of a central placement on the browser.
 
 + However when you add the aside element with a class of ```.secondary```, this pushes the content to the left, giving the appearance of a 2-column layout.
 
-## Makeup and Theme Support.
+### Makeup and Theme Support.
 
 + The starter theme Uses Google Font: **Merriweather Sans**.
 
@@ -44,7 +53,7 @@ Link: http://localhost/wordpress/subdomain/
   + ```add_theme_support( 'menus' );``` - For Theme Navigation Menus
   + ```add_theme_support( 'widgets' );``` - For Using WordPress widget areas and its range of widgets. 
 
-## Template files included:
+### Template files included:
 
 + index.php 
 + page.php 
@@ -61,9 +70,18 @@ Link: http://localhost/wordpress/subdomain/
 
 ```primary-content.php``` and ```secondary-content.php```are included as template parts as well as the Theme header and footer. 
 
+# Customising the Theme
+[Back to Top](#sections)
+
+How to customise your theme.
+
++ Content to come
++ Reading:  http://localhost/wordpress/subdomain/articles/ - Articles Page set as "Posts" page.
++ 
 
 
 # Code Snippets
+[Back to Top](#sections)
 
 ## Template Hierarchy
 
@@ -75,7 +93,7 @@ WordPress templates have an order of preference for Dynamic content that is used
 
 ```
 
-## Loops
+## WordPress Loops
 
 + Use loops like this to display content from the WordPress Admin area
 
@@ -101,6 +119,108 @@ WordPress templates have an order of preference for Dynamic content that is used
 ?>
 
 ```
+
+## **Loop Syntax Examples**
+
+###  WordPress Standard Loop
+
+```php
+<ul>
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+        <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li>
+
+    <?php endwhile; else: ?>
+
+        <?php echo "No Article data"; ?>
+
+    <?php endif;  ?>    
+
+</ul>     
+
+```
+
+
+###  Loop Alternative Syntax
+
+```html
+    <!-- Start the Loop. -->
+    <?php if ( have_posts() ) : ?>
+
+    <!-- Add the pagination functions here. -->
+
+
+    <!-- Start of the main loop. -->
+    <?php while ( have_posts() ) : the_post(); ?>
+
+        <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li> 
+        
+        <?php posts_nav_link(); ?>
+
+    <?php endwhile; ?>
+
+    <!-- Pagination -->
+    <div class="navigation">
+        
+        <?php echo paginate_links(); ?>
+        
+        <p> <?php posts_nav_link(' >> ','prelabel','nextlabel'); ?> </p>  
+
+        <?php posts_nav_link(); ?>
+
+        <div class="next"> <?php echo next_posts_link( 'Older posts' ); ?> </div>  
+
+        <div class="last"> <?php echo previous_posts_link( 'Newer posts' ); ?> </div>
+
+    </div>
+
+    <?php else : ?>
+
+        <p>Loop endif - no loop content</p>
+
+    
+    <?php endif; ?>  
+
+```
+
+
+### WordPress Loop - WP Query
+
+```html
+    <?php $main_post_list = new WP_Query(array( 'post_type'=>'post' )); ?>
+
+    <?php if ( $main_post_list->have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
+
+        <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li>                  
+        
+
+    <?php endwhile; else: ?>
+
+        <?php echo "No Article data"; ?>
+
+    <?php endif;  ?>  
+
+```
+
+###  Post Pagination
+
+```html
+    <!-- Pagination -->
+    <div class="navigation">
+        
+        <?php echo paginate_links(); ?>
+        
+        <p> <?php posts_nav_link(' >> ','prelabel','nextlabel'); ?> </p>  
+
+        <div class=""> <?php next_posts_link( 'Older posts' ); ?> </div>
+
+
+
+        <div class=""> <?php previous_posts_link( 'Newer posts' ); ?> </div>
+
+    </div> 
+```
+
 
 ## WordPress Menu Areas
 
@@ -257,15 +377,24 @@ add_action( 'widgets_init', 'widget_area_one' );
 + **Yoast** - 
 
 
-<a href="#to_come"></a>
-# To come! [To come](#to_come)
+# To Come! 
+[Back to Top](#sections)
 
 + Pagination
 + Custom Post Types
 
 ## Pagination 
 
-+
++ e.g. page/3
+
+The log frontpage template must be the one that is showing up as the post page... the page according to the WordPress Admin area that has the default collection of WordPress posts. 
+
++ ```paginate_links()```  - this seeems to be showing some numbered pagination. It generates the following classes in WordPress output. .prev .next .page-numbers For the purposes for CSS, page number as generated by the markup output comes before the .pre and .next classes in the order of preference.
+
++ ```posts_nav_link()```  - does not seem to generate it's own classes. So feel free to surround these with your own.
+
+likewise for next_posts_link() and previous_posts_link()
+
 +
 
 
