@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 25-02-2021 - 12:01pm
+# Setting up your WordPress theme.  - **Last Update:** 25-02-2021 - 12:30pm
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -19,7 +19,7 @@
 ### **Setup:**
 [Back to Top](#sections)
 
-#### Link: http://localhost/wordpress/subdomain/ 
+#### Link: http://localhost/wordpress/subdomain/ | Repo: https://github.com/jg-digital-media/jgdm_wordpress_starter/blob/master/functions.php
 
 + Your theme will need to be uploaded to a WordPress installation via WordPress.org.
 
@@ -45,7 +45,7 @@
 
 + The Theme static files Developed in SASS/CSS and HTML5.
 
-+ Theme built using PHP with an empty JavaScript file included and equeued using ```functions.php```. 
++ Theme built using PHP with an empty JavaScript file included and enqueued using ```functions.php```. 
 
 + Theme includes theme supports for the following
   + ```add_theme_support( 'post-thumbnails' );``` - For Featured Images
@@ -56,17 +56,17 @@
 ### Template files included:
 
 + index.php 
++ functions.php
 + page.php 
 + front-page.php
 + articles.php 
 + single.php 
 + archive.php 
-+ autbor.php 
++ author.php 
 + date.php 
 + search.php 
 + searchpage.php
 + 404.php
-+ functions.php
 
 ```primary-content.php``` and ```secondary-content.php```are included as template parts as well as the Theme header and footer. 
 
@@ -75,9 +75,10 @@
 
 How to customise your theme.
 
-+ Content to come
-+ Reading:  http://localhost/wordpress/subdomain/articles/ - Articles Page set as "Posts" page.
-+ 
++ Reading:  http://localhost/wordpress/subdomain/articles/ - "Homepage" setting on "Readings" page is set up to display the "latest posts"
++ Archive Pages:  The Theme's archive.php template requires a page with a ```archive/``` slug.
++ Author Pages:  The theme's author.php template requires ```the_author_posts_link(); ``` to link to the posts author. a page with a ```author/``` slug. At this time there is no template file for a specific author.
++ Add your own theme image by swapping out your theme's ```screenshot.png``` file.
 
 
 # Code Snippets

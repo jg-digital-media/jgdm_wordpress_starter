@@ -52,7 +52,7 @@
                     
                 <?php echo paginate_links(); ?>
                 
-                <p> <?php posts_nav_link(' || ','Next Items','Previous Items'); ?> </p>  
+                <p> <?php posts_nav_link(' || ','Previous Items','Next Items'); ?> </p>  
 
                 <span> <?php previous_posts_link('&lt;&lt; Go to Previous Page'); ?> </span> 
                 

@@ -37,7 +37,7 @@ Template Name: Article Single Template
             <div class="authorship">
 
                 <p>Authored by: <?php the_author_posts_link(); ?> </p>
-                <p>Date: <a href="<?php echo get_site_url();  ?>/archives"> <?php the_date(); ?> </a> </p>
+                <p>Date: <a href="<?php echo get_site_url();  ?>/archive"> <?php the_date(); ?> </a> </p>
 
             </div>
 
