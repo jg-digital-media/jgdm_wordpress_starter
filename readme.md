@@ -19,7 +19,7 @@
 ### **Setup:**
 [Back to Top](#sections)
 
-#### Link: http://localhost/wordpress/subdomain/ 
+#### Link: http://localhost/wordpress/subdomain/ | Repo: https://github.com/jg-digital-media/jgdm_wordpress_starter
 
 + Your theme will need to be uploaded to a WordPress installation via WordPress.org.
 
