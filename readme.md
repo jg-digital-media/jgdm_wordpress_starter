@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 19-02-2021
+# Setting up your WordPress theme.  - **Last Update:** 25-02-2021 - 12:01pm
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -19,7 +19,7 @@
 ### **Setup:**
 [Back to Top](#sections)
 
-#### Link: http://localhost/wordpress/subdomain/ | Repo: https://github.com/jg-digital-media/jgdm_wordpress_starter
+#### Link: http://localhost/wordpress/subdomain/ 
 
 + Your theme will need to be uploaded to a WordPress installation via WordPress.org.
 
