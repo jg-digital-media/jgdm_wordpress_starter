@@ -28,7 +28,12 @@ Template Name: Article List Template
 
             <ul class="article_list">            
 
-                <?php $main_post_list = new WP_Query(array( 'post_type'=>'post' )); ?>
+                <?php $main_post_list = new WP_Query(
+                    array( 
+                        'post_type'=>'post',
+                        'posts_per_page' => 10
+                        )
+                    ); ?>
 
                 <?php if ( have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
 

@@ -10,7 +10,15 @@
 
             <h2> <?php bloginfo("site_title"); ?> </h2>
 
-            <p>This is the template that has no individual permalink and therefore serves as the site home page.</p>
+            <p>This is the template that has no specific permalink and therefore serves as the site home page.</p>
+
+            <hr />
+
+            <div class="search_area">
+            
+                <h3> <?php get_search_form();  ?> </h3>
+
+            </div>
 
             <hr />
 
@@ -18,23 +26,22 @@
 
             <ul class="article_list">            
 
-            
+                <?php 
+                
+                    //Protect against arbitrary paged values
+                    //$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1; 
+                    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+                
+                    $main_post_list = new WP_Query(
+                            array( 
+                                'post_type'=>'post',
+                                'posts_per_page' => 10,
+                                'paged'=> $paged
+                                )
+                            ); 
+                ?>
 
-             <?php 
-             
-                //Protect against arbitrary paged values
-                //$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1; 
-                $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-             
-                $main_post_list = new WP_Query(
-                        array( 
-                            'post_type'=>'post',
-                            'posts_per_page' => 10,
-                            'paged'=> $paged
-                            )
-                        ); 
-            ?>
-
+                <!-- Start the Loop. -->
                 <?php if ( $main_post_list->have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
 
                     <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li> 

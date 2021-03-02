@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 25-02-2021 - 12:30pm
+# Setting up your WordPress theme.  - **Last Update:** 26-02-2021 - 13:30pm
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -328,10 +328,18 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 
 ## Search
+
 +  Use the WordPress loop to generate the dynamic content needed to display search results. 
+
++ By Default, this seems to display page results as well as post results.
+
++ Search Exclude as one way to filter what post formats are returned by WordPress Search - https://wordpress.org/plugins/search-exclude/ 
+
++ 
 
 ```php
 
+//Standard WordPress loop
  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
  <?php endwhile; else: ?>
@@ -340,12 +348,45 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ```
 
-+ get search form template - to generate search textbox and button
+```php
+
+//WordPress loop for pagination with WP Query
+<?php 
+                
+    //Protect against arbitrary paged values
+    //$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1; 
+    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+    $main_post_list = new WP_Query(
+            array( 
+                'post_type'=>'post',
+                'posts_per_page' => 10,
+                'paged'=> $paged
+                )
+            ); 
+?>
+
+    <!-- Start the Loop. -->
+    <?php if ( $main_post_list->have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
+
+        <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li> 
+
+    <?php endwhile; else: ?>
+
+        <?php echo "No Article data"; ?>
+
+    <?php endif;  ?>   
+
+
+```
+
++ get_search_form() template - to generate WordPress search textbox and button
 
 ```php
 
 <?php 
  
+    //wordpress method to display search form
     <p> <?php get_search_form(); ?> </p>
 
  ?>
