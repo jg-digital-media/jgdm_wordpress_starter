@@ -465,6 +465,6 @@ Populate the other additional labels
 
 The goal for later on is to learn to build up custom post types in code.  (register_post_type et all.)
 
-Custom Post: - http://localhost/wordpress/subdomain/custom_post/custom-post/  Which assumes a custom post type as a "slug" of Custom post.
+Custom Post: - http://localhost/wordpress/subdomain/custom/  Which assumes a custom post type as a "slug" of Custom post.
 
 # **Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)
