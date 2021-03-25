@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 26-02-2021 - 13:30pm
+# Setting up your WordPress theme.  - **Last Update:** 25-03-2021 - 15:10pm
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v1 
++ **Version**: v2 
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
