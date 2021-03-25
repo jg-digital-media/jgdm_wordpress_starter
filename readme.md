@@ -435,14 +435,34 @@ The log frontpage template must be the one that is showing up as the post page..
 
 + ```posts_nav_link()```  - does not seem to generate it's own classes. So feel free to surround these with your own.
 
-likewise for next_posts_link() and previous_posts_link()
+likewise for ```next_post_link()``` and ```previous_post_link()```
 
-+
++ e.g.
+
+```php
+<?php 
+
+  <div class="next"> <?php next_post_link( '%link','Newer' ); ?> </div>  
+
+    <span>Post Nav</span>
+
+    <div class="last"> <?php previous_post_link( '%link', 'Older' ); ?> </div>  
+?>
+```
 
 
 ## Custom Post Types
-+ 
-+
 
+### As it stands this theme uses the Custom Post Type UI and Advanced Custom Fields plugins to run Custom Post Types. You will need to download these plugins in your WordPress installation.
+
+### You should fill in as a minimum
++ Post Type Slug: 
++ Post Type Slug:
++ Plural Label:	
++ Singular Label:
+
+Populate the other additional labels
+
+Custom Post: - http://localhost/wordpress/subdomain/custom_post/custom-post/  Which assumes a custom post type as a "slug" of Custom post.
 
 # **Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)
