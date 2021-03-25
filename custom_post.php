@@ -28,13 +28,11 @@ $custom_post_type = new WP_Query(
 
             <div class="content_one">
                 
-                <a href="<?php echo get_site_url(); ?>/articles/" class="back_home">Articles List</a>
+                <a href="<?php echo get_site_url(); ?>/articles/" class="back_home">Back to Articles List</a>
 
                 <?php if( $custom_post_type->have_posts() ): while( $custom_post_type->have_posts() ): $custom_post_type->the_post(); ?>
             
-                    <h2> <a href="<?php the_permalink(); ?>" target="blank"><?php the_title(); ?> </a> </h2>
-                    
-                    <p> <?php the_field("example_field_1"); ?> </p>
+                    <h3> <a href="<?php the_permalink(); ?>" target="blank"><?php the_title(); ?> </a> </h3>
 
                 <?php endwhile; else : ?>
 
@@ -46,8 +44,6 @@ $custom_post_type = new WP_Query(
 
             </div>
 
-        </section>
-
-        
+        </section>        
 
 <?php require "template-parts/footer.php";  ?>

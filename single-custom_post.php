@@ -28,6 +28,8 @@ $custom_post_type = new WP_Query(
             <div class="content_one">
 
                 <?php posts_nav_link(); ?>
+
+                    <p><a href="<?php echo get_site_url(); ?>/article" class="goto_page">Go to Articles List</a></p>
                 
                     <div class="next"> <?php next_post_link( '%link','Newer' ); ?> </div>  
 
@@ -41,6 +43,6 @@ $custom_post_type = new WP_Query(
 
             </div>
 
-        </section>
+        </section>        
 
 <?php require "template-parts/footer.php";  ?>
