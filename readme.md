@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 25-03-2021 - 15:53pm
+# Setting up your WordPress theme.  - **Last Update:** 25-03-2021 - 16:20pm
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -32,6 +32,14 @@
 + Feel free to switch out the included **screenshot.png** file with your own theme image of **800px** width and **600px** height.
 
 + Blog pages are currently show at most **40** pages on my installaton. You an change this setting via ```Settings ----> Reading``` in the Admin area.
+
+### Templates to page
+
+Assign WordPress Pages to the following Template files.
+
++
++
++
 
 ### How the Design works
 
