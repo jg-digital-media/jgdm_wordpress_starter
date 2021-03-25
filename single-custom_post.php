@@ -27,8 +27,7 @@ $custom_post_type = new WP_Query(
 
             <div class="content_one">
 
-                <?php posts_nav_link(); ?>                
-
+                <?php posts_nav_link(); ?>
                 
                     <div class="next"> <?php next_post_link( '%link','Newer' ); ?> </div>  
 
@@ -40,11 +39,8 @@ $custom_post_type = new WP_Query(
                         
                     <p> <?php the_field("example_field_2"); ?> </p>
 
-
             </div>
 
         </section>
-
-        
 
 <?php require "template-parts/footer.php";  ?>
