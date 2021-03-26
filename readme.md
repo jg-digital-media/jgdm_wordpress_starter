@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 26-03-2021 - 10:20am
+# Setting up your WordPress theme.  - **Last Update:** 26-03-2021 - 12:25pm
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -464,16 +464,51 @@ likewise for ```next_post_link()``` and ```previous_post_link()```
 ### As it stands this theme uses the Custom Post Type UI and Advanced Custom Fields plugins to run Custom Post Types. You will need to download these plugins in your WordPress installation.
 
 ### You should fill in as a minimum
-+ Post Type Slug:
-+ Post Type Slug:
-+ Plural Label:	
-+ Singular Label:
++ Post Type Slug:  custom_post
++ Plural Label:	 Custom Posts
++ Singular Label: Custom Post
 
 Populate the other additional labels
 
 The goal for later on is to learn to build up custom post types in code.  (register_post_type et all.)
 
 Custom Post: - http://localhost/wordpress/subdomain/custom/  Which assumes a custom post type as a "slug" of Custom post.
+
+### Register Post Type
+
+
++ This will create a "Movie" Custom Post Type.
+
++ The "Movie" Post Type will show up in field groups in your Advanced Custom Fields Plugin.
+
+```php
+<!--- Create a Custom Post Type -->
+
+
+<?php
+//function for creating a custom post type
+function create_posttype() {
+
+    register_post_type ( 
+
+        //Generating Custom Post Type options
+        'movies', 
+        array(
+            'labels' => array( 
+                'name' => __( 'Movie' ), 
+                'singular_name' => __( 'Movie' ) 
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'movies'),
+            'show_in_rest' => true,
+        )
+   );  
+}
+
+Hook to initial theme setup
+add_action( 'init', 'create_posttype' );
+```
 
 # **Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)
 

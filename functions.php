@@ -78,12 +78,7 @@ function widget_area_one() {
 }
 
 add_action( 'widgets_init', 'widget_area_one' );
-?>
 
-
-
-
-<?php
 
 /**
  * 
@@ -105,4 +100,275 @@ function jgdm_wordpress_pagination(){
 add_action( 'init', 'jgdm_wordpress_pagination' );
 apply_filters( 'paginate_links', $link ); */
 
-?>
+
+/**
+ * 
+ * Custom Post Type in Code
+ */
+
+
+//Function for creating a "Movies" custom post type
+function create_post_type() {
+
+    register_post_type ( 
+
+        //Generating Custom Post Type options
+        'movies', 
+        array(
+            'labels' => array ( 
+                'name' => __( 'My Movies' ), 
+                'singular_name' => __( 'Movie' ),
+                'add_new_item' => __( 'Add New Movie Code' ),
+                'all_items' => __( 'All Movies Code' ) 
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'movies'),
+            'show_in_rest' => true,
+        )
+   );  
+}
+
+//Hook to initial theme setup
+add_action( 'init', 'create_post_type' );
+
+
+//Custom fields in code
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array(
+        'key' => 'group_605dc183dfdf7',
+        'title' => 'Movie Details',
+        'fields' => array(
+            array(
+                'key' => 'field_605dc1eaac82d',
+                'label' => 'Movie Name',
+                'name' => 'movie_name',
+                'type' => 'text',
+                'instructions' => 'Enter the name of your movie',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+        ),
+
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'movies',
+                ),
+            ),
+        ),
+        
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+
+endif;
+
+function create_post_type_example() {
+
+    register_post_type ( 
+
+        //Generating Custom Post Type options
+        'custom_post', 
+        array(
+            'labels' => array ( 
+                'name' => __( 'My Custom Posts' ), 
+                'singular_name' => __( 'Custom Post' ), 
+                'add_new_item' => __( 'Add New Custom Post Code' ),
+                'add_new' => __( 'Add New Custom Post Code' ), 
+                'all_items' => __( 'All Custom Posts Code' ) 
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'custom_post'),
+            'show_in_rest' => true,
+        )
+
+    );
+}
+
+//Hook to initial theme setup
+add_action( 'init', 'create_post_type_example' );
+
+
+//"Example Fields" - Field Group
+
+if( function_exists('acf_add_local_field_group') ):
+
+    acf_add_local_field_group(array(
+        'key' => 'group_605c792b2640e',
+        'title' => 'Example Field Group',
+        'fields' => array(
+            array(
+                'key' => 'field_605c794ba3c91',
+                'label' => 'Example Field 1',
+                'name' => 'example_field_1',
+                'type' => 'text',
+                'instructions' => 'Instructional information for your custom post field. #1',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+            array(
+                'key' => 'field_605c79e1a3c92',
+                'label' => 'Text Area #2',
+                'name' => 'example_field_2',
+                'type' => 'textarea',
+                'instructions' => 'Instructional information for your custom post field. #2',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'new_lines' => '',
+            ),
+            array(
+                'key' => 'field_605c7a25b9f97',
+                'label' => 'Select Area #3',
+                'name' => 'example_field_3',
+                'type' => 'select',
+                'instructions' => 'Instructional information for your custom post field. #3',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'option 1' => 'Option 1',
+                    'option 2' => 'Option 2',
+                    'option 3' => 'Option 3',
+                ),
+                'default_value' => false,
+                'allow_null' => 0,
+                'multiple' => 0,
+                'ui' => 0,
+                'return_format' => 'value',
+                'ajax' => 0,
+                'placeholder' => '',
+            ),
+            array(
+                'key' => 'field_605c7accb9f98',
+                'label' => 'Example Field 4 - Image',
+                'name' => 'example_field_4',
+                'type' => 'image',
+                'instructions' => 'Instructional information for your custom post field. #4',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'return_format' => 'url',
+                'preview_size' => 'large',
+                'library' => 'all',
+                'min_width' => '',
+                'min_height' => '',
+                'min_size' => '',
+                'max_width' => '',
+                'max_height' => '',
+                'max_size' => '',
+                'mime_types' => '',
+            ),
+            array(
+                'key' => 'field_605dcb1061032',
+                'label' => 'Example Field 5',
+                'name' => 'example_field_5',
+                'type' => 'radio',
+                'instructions' => 'Instructional information for your custom post field. #5',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'choices' => array(
+                    'On' => 'On',
+                    'Off' => 'Off',
+                ),
+                'allow_null' => 0,
+                'other_choice' => 0,
+                'default_value' => '',
+                'layout' => 'vertical',
+                'return_format' => 'value',
+                'save_other_choice' => 0,
+            ),
+            array(
+                'key' => 'field_605dcb5699c19',
+                'label' => 'Example Field 6',
+                'name' => 'example_field_6',
+                'type' => 'number',
+                'instructions' => 'Instructional information for your custom post field. #6',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'min' => '',
+                'max' => '',
+                'step' => '',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'custom_post',
+                ),
+            ),
+        ),
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ));
+    
+    endif;
