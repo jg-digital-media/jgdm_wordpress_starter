@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 25-03-2021 - 16:20pm
+# Setting up your WordPress theme.  - **Last Update:** 26-03-2021 - 10:20am
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -476,3 +476,9 @@ The goal for later on is to learn to build up custom post types in code.  (regis
 Custom Post: - http://localhost/wordpress/subdomain/custom/  Which assumes a custom post type as a "slug" of Custom post.
 
 # **Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)
+
+
+## Data Backup
+
++ ```wp_subdomain``` - minimal option backup - contains post, custom post type and plugin information for import 
++ ```wp_subdomainv1``` - contains post, custom post type and plugin information for import 
