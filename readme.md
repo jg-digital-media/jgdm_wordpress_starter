@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 26-03-2021 - 12:25pm
+# Setting up your WordPress theme.  - **Last Update:** 29-03-2021 - 15:15
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.1
++ **Version**: v2.2
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -37,9 +37,20 @@
 
 Assign WordPress Pages to the following Template files.
 
-+
-+
-+
++ archive.php
++ author.php
++ search.php
++ custom_post.php
++ home.php
++ page.php
+
+Templates are assigned in template files using the following comment steucture
+
+```php
+/*
+ Template Name:  Template Identifier Goes Here!
+*/
+```
 
 ### How the Design works
 
@@ -422,9 +433,12 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ## Recommended Plugins
 
-+ **Crayon Syntax Highlighter** - Version 2.8.4 | By Aram Kocharyan | View details | Settings | Theme Editor | Donate
-+ **Akismet ** - 
-+ **Yoast** - 
++ **Crayon Syntax Highlighter** - Version 2.8.4 | By Aram Kocharyan 
++ **Akismet Anti-Spam** - Version 4.1.9 | By Automattic 
++ **Yoast SEO** - Version 16.0.2 | By Team Yoast  
++ **Advanced Custom Fields** - Version 5.9.5 | By Elliot Condon  
++ **Custom Post Type UI** - Version 1.8.2 | By WebDevStudios 
++ **Maintenance Mode Free** - Version 1.2 | By ShapedPlugin 
 
 
 # To Come! 
