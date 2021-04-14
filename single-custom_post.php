@@ -40,6 +40,14 @@ $custom_post_type = new WP_Query(
                     <p> <?php the_field("example_field_1"); ?> </p>
                         
                     <p> <?php the_field("example_field_2"); ?> </p>
+                    
+                    <p> <?php the_field("example_field_3"); ?> </p>
+                    
+                    <p> <?php the_field("example_field_4"); ?> </p>
+                    
+                    <p> <?php the_field("example_field_5"); ?> </p>
+                    
+                    <p> <?php the_field("example_field_6"); ?> </p>
 
             </div>
 
