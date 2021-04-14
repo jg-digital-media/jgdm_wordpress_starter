@@ -116,10 +116,10 @@ function create_post_type() {
         'movies', 
         array(
             'labels' => array ( 
-                'name' => __( 'My Movies' ), 
-                'singular_name' => __( 'Movie' ),
-                'add_new_item' => __( 'Add New Movie Code' ),
-                'all_items' => __( 'All Movies Code' ) 
+                'name' => __( 'My Movies (Code)' ), 
+                'singular_name' => __( 'Movie (Code)' ),
+                'add_new_item' => __( 'Add New Movie (Code)' ),
+                'all_items' => __( 'All Movies (Code)' ) 
             ),
             'public' => true,
             'has_archive' => true,
@@ -138,14 +138,35 @@ if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array(
         'key' => 'group_605dc183dfdf7',
-        'title' => 'Movie Details',
+        'title' => 'Movie Details - Custom Fields in Code',
         'fields' => array(
             array(
                 'key' => 'field_605dc1eaac82d',
-                'label' => 'Movie Name',
+                'label' => 'Movie Name in Code',
                 'name' => 'movie_name',
                 'type' => 'text',
-                'instructions' => 'Enter the name of your movie',
+                'instructions' => 'Enter the name of your movie - in Code.',
+                'required' => 1,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ),
+
+            //field 2
+            array(
+                'key' => 'field_2',
+                'label' => 'Custom Field 2 Code',
+                'name' => 'movie_name_2',
+                'type' => 'text',
+                'instructions' => 'Enter the value for 2nd custom code',
                 'required' => 1,
                 'conditional_logic' => 0,
                 'wrapper' => array(

@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 29-03-2021 - 15:15
+# Setting up your WordPress theme.  - **Last Update:** 14-04-2021 - 11:00
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -475,7 +475,8 @@ likewise for ```next_post_link()``` and ```previous_post_link()```
 
 ## Custom Post Types
 
-### As it stands this theme uses the Custom Post Type UI and Advanced Custom Fields plugins to run Custom Post Types. You will need to download these plugins in your WordPress installation.
+### As it stands this theme uses the Custom Post Type UI and Advanced Custom Fields plugins to use Custom Post Types. You will need to download these plugins in your WordPress installation. The following information tels us how to create Custom Post Types in Code.
+
 
 ### You should fill in as a minimum
 + Post Type Slug:  custom_post
@@ -496,32 +497,110 @@ Custom Post: - http://localhost/wordpress/subdomain/custom/  Which assumes a cus
 + The "Movie" Post Type will show up in field groups in your Advanced Custom Fields Plugin.
 
 ```php
+
 <!--- Create a Custom Post Type -->
-
-
 <?php
-//function for creating a custom post type
-function create_posttype() {
+    //function for creating a custom post type
+    function create_posttype() {
 
-    register_post_type ( 
+        register_post_type ( 
 
-        //Generating Custom Post Type options
-        'movies', 
+            //Generating Custom Post Type options
+            'movies', 
+            array(
+                'labels' => array( 
+                    'name' => __( 'Movie' ), 
+                    'singular_name' => __( 'Movie' ) 
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'movies'),
+                'show_in_rest' => true,
+            )
+        );  
+    }
+
+    //Hook to initial theme setup
+    add_action( 'init', 'create_posttype' );
+```
+
+### Coding Custom Fields
+
+
+```php
+
+    //Custom fields in code
+    if( function_exists('acf_add_local_field_group') ):
+        
+        acf_add_local_field_group( array (
+
+            //custom fields in code            
+            'key' => 'group_605dc183dfdf7',
+            'title' => 'Movie Details',
+            'fields' => array(),
+            'location' => array(),
+            'menu_order' => 0,
+            'position' => 'normal',
+            'style' => 'default',
+            'label_placement' => 'top',
+            'instruction_placement' => 'label',
+            'hide_on_screen' => '',
+            'active' => true,
+            'description' => '',
+
+
+        ))
+    }
+
+    endif;
+
+```
+
+```php
+//custom fields
+
+ 'fields' => array(
         array(
-            'labels' => array( 
-                'name' => __( 'Movie' ), 
-                'singular_name' => __( 'Movie' ) 
+            'key' => 'field_605c794ba3c91',
+            'label' => 'Example Field 1',
+            'name' => 'example_field_1',
+            'type' => 'text',
+            'instructions' => 'Instructional information for your custom post field. #1',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
             ),
-            'public' => true,
-            'has_archive' => true,
-            'rewrite' => array('slug' => 'movies'),
-            'show_in_rest' => true,
-        )
-   );  
-}
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+        ),
 
-Hook to initial theme setup
-add_action( 'init', 'create_posttype' );
+        //field 2 in code
+        array(
+            'key' => 'field_2_key',
+            'label' => 'Example Field 2',
+            'name' => 'example_field_2',
+            'type' => 'text',
+            'instructions' => 'Instructional information for your custom post field. #2',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',),
+)
+
 ```
 
 # **Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)
