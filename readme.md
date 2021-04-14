@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 14-04-2021 - 11:00
+# Setting up your WordPress theme.  - **Last Update:** 14-04-2021 - 13:50
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.2
++ **Version**: v2.3
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -80,6 +80,7 @@ Templates are assigned in template files using the following comment steucture
 + front-page.php
 + articles.php 
 + single.php 
++ single-custom_post.php
 + archive.php 
 + author.php 
 + date.php 
@@ -107,7 +108,7 @@ How to customise your theme.
 
 WordPress templates have an order of preference for Dynamic content that is used known as the Template Hierarchy.
 
-```
+```php
 // Content to go here
 
 
@@ -142,7 +143,7 @@ WordPress templates have an order of preference for Dynamic content that is used
 
 ## **Loop Syntax Examples**
 
-###  WordPress Standard Loop
+### WordPress Standard Loop
 
 ```php
 <ul>
@@ -161,9 +162,9 @@ WordPress templates have an order of preference for Dynamic content that is used
 ```
 
 
-###  Loop Alternative Syntax
+### Loop Alternative Syntax
 
-```html
+```php
     <!-- Start the Loop. -->
     <?php if ( have_posts() ) : ?>
 
@@ -211,8 +212,7 @@ WordPress templates have an order of preference for Dynamic content that is used
 
     <?php if ( $main_post_list->have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
 
-        <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li>                  
-        
+        <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li> 
 
     <?php endwhile; else: ?>
 
@@ -244,7 +244,7 @@ WordPress templates have an order of preference for Dynamic content that is used
 
 ## WordPress Menu Areas
 
-+ in functions.php
++ Add the code below in functions.php
 
 ```php
 <?php
@@ -263,7 +263,7 @@ function register_theme_menus() {
 ?>
 ```
 
-+ Place your code somewhere on your website
++ Place this PHP code somewhere on your website markup (which could be your ```index.php``` or ```page.php``` template file)
 
 ```php
 
@@ -278,7 +278,7 @@ function register_theme_menus() {
 ?>
 ```
 
-## Enqueuing Assets
+## Enqueuing Assets into your theme
 
 + Enqueue Scripts
 
@@ -304,7 +304,6 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
  * 
  * Apply Styling
  */
-
 
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
@@ -338,7 +337,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ```
 
-+  Place in code. 
++  Place the code snippet below somewhere in the PHP markup according to your design needs. 
 
 ```php
  dynamic_sidebar( "widgetarea_search" );
@@ -348,13 +347,12 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ## Search
 
-+  Use the WordPress loop to generate the dynamic content needed to display search results. 
++ Use the WordPress loop to generate the dynamic content needed to display search results. 
 
 + By Default, this seems to display page results as well as post results.
 
 + Search Exclude as one way to filter what post formats are returned by WordPress Search - https://wordpress.org/plugins/search-exclude/ 
 
-+ 
 
 ```php
 
@@ -367,9 +365,10 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ```
 
+### WordPress loop for pagination with WP Query
+
 ```php
 
-//WordPress loop for pagination with WP Query
 <?php 
                 
     //Protect against arbitrary paged values
@@ -385,21 +384,20 @@ add_action( 'widgets_init', 'widget_area_one' );
             ); 
 ?>
 
-    <!-- Start the Loop. -->
-    <?php if ( $main_post_list->have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
+<!-- Start the Loop. -->
+<?php if ( $main_post_list->have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
 
-        <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li> 
+    <li><a href="<?php the_permalink(); ?>" class="post_list_item"><?php the_title(); ?></a></li> 
 
-    <?php endwhile; else: ?>
+<?php endwhile; else: ?>
 
-        <?php echo "No Article data"; ?>
+    <?php echo "No Article data"; ?>
 
-    <?php endif;  ?>   
-
+<?php endif;  ?>   
 
 ```
 
-+ get_search_form() template - to generate WordPress search textbox and button
++ ```get_search_form()``` template - to generate WordPress search text box and button functionality.
 
 ```php
 
@@ -422,7 +420,7 @@ add_action( 'widgets_init', 'widget_area_one' );
  ?>
  ```
 
-+ Archives
++ Monthly Archives
 
 ```php
 
@@ -431,7 +429,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 ```
 
 
-## Recommended Plugins
+## Recommended WordPress Plugins
 
 + **Crayon Syntax Highlighter** - Version 2.8.4 | By Aram Kocharyan 
 + **Akismet Anti-Spam** - Version 4.1.9 | By Automattic 
@@ -439,13 +437,6 @@ add_action( 'widgets_init', 'widget_area_one' );
 + **Advanced Custom Fields** - Version 5.9.5 | By Elliot Condon  
 + **Custom Post Type UI** - Version 1.8.2 | By WebDevStudios 
 + **Maintenance Mode Free** - Version 1.2 | By ShapedPlugin 
-
-
-# To Come! 
-[Back to Top](#sections)
-
-+ Pagination
-+ Custom Post Types
 
 ## Pagination 
 
@@ -605,6 +596,10 @@ Custom Post: - http://localhost/wordpress/subdomain/custom/  Which assumes a cus
 
 # **Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)
 
+# To Come! 
+[Back to Top](#sections)
+
+...
 
 ## Data Backup
 
