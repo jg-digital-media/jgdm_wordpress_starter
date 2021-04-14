@@ -143,7 +143,7 @@ if( function_exists('acf_add_local_field_group') ):
             array(
                 'key' => 'field_605dc1eaac82d',
                 'label' => 'Movie Name in Code',
-                'name' => 'movie_name',
+                'name' => 'movie_field_in_code',
                 'type' => 'text',
                 'instructions' => 'Enter the name of your movie - in Code.',
                 'required' => 1,
@@ -164,7 +164,7 @@ if( function_exists('acf_add_local_field_group') ):
             array(
                 'key' => 'field_2',
                 'label' => 'Custom Field 2 Code',
-                'name' => 'movie_name_2',
+                'name' => 'movie_field_in_code_two',
                 'type' => 'text',
                 'instructions' => 'Enter the value for 2nd custom code',
                 'required' => 1,
@@ -204,6 +204,8 @@ if( function_exists('acf_add_local_field_group') ):
 
 endif;
 
+
+
 function create_post_type_example() {
 
     register_post_type ( 
@@ -232,7 +234,6 @@ add_action( 'init', 'create_post_type_example' );
 
 
 //"Example Fields" - Field Group
-
 if( function_exists('acf_add_local_field_group') ):
 
     acf_add_local_field_group(array(

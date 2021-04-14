@@ -47,12 +47,12 @@ $custom_post_type = new WP_Query(
 
             <div class="authorship">
 
-                <p><strong>Value 1:</strong> <?php if( get_field('example_field_1') ): ?>
-                                                <h2><?php the_field('example_field_1'); ?></h2>
+                <p><strong>Value 1:</strong> <?php if( get_field('movie_field_in_code') ): ?>
+                                                <span> <?php the_field('movie_field_in_code'); ?> </span>
                                             <?php endif; ?> </p>
 
-                <p><strong>Value 2:</strong> <?php if( get_field('example_field_2') ): ?>
-                                                <h2><?php the_field('example_field_2'); ?></h2>
+                <p><strong>Value 2:</strong> <?php if( get_field('movie_field_in_code_two') ): ?>
+                                                <span> <?php the_field('movie_field_in_code_two'); ?> </span>
                                             <?php endif; ?> </p>
 
                 <p>Authored by: <?php the_author_posts_link(); ?> </p>
