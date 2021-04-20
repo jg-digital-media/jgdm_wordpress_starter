@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 14-04-2021 - 13:50
+# Setting up your WordPress theme.  - **Last Update:** 20-04-2021 - 15:37
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -99,7 +99,7 @@ How to customise your theme.
 + Archive Pages:  The Theme's archive.php template requires a page with a ```archive/``` slug.
 + Author Pages:  The theme's author.php template requires ```the_author_posts_link(); ``` to link to the posts author. a page with a ```author/``` slug. At this time there is no template file for a specific author.
 + Add your own theme image by swapping out your theme's ```screenshot.png``` file.
-
++ The menu is assigned to the menu slug ```"main_menu"```.
 
 # Code Snippets
 [Back to Top](#sections)
@@ -594,10 +594,48 @@ Custom Post: - http://localhost/wordpress/subdomain/custom/  Which assumes a cus
 
 ```
 
-# **Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)
+## Customise Admin Area
+
+
++ Usually, the client journey begins before they come to the dashboard, at the login page. For that reason, it’s only good and proper to start our customization here
+
++ For example, if you would like to change the WordPress logo on the standard login page to something else, you can do so with the following piece of code:
+
+Source Material: https://torquemag.io/2016/08/customize-wordpress-backend-clients/
+
++  Customize the Login Page
+
+
+```php
+<?php function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/login-logo.png);
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+```
+
++ Enqueue a Login Stylesheet
+
+```php
+function my_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/style-login.css' );
+    wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/style-login.js' );
+}
+add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+```
 
 # To Come! 
 [Back to Top](#sections)
+
++ Customise the Admin Area
++ Customise login form
++ Step 1 - Creating a Child Theme
++ Code Syntax Formatting and displaying them in a WordPress Theme
 
 ...
 
@@ -605,3 +643,6 @@ Custom Post: - http://localhost/wordpress/subdomain/custom/  Which assumes a cus
 
 + ```wp_subdomain``` - minimal option backup - contains post, custom post type and plugin information for import 
 + ```wp_subdomainv1``` - contains post, custom post type and plugin information for import 
+
+
+# **Written and Designed by** [Jonnie Grieve Digital Media](https://www.jonniegrieve.co.uk)

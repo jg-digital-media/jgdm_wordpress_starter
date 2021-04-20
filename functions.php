@@ -43,6 +43,7 @@ add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
  */
 
 function register_theme_menus() {
+
     register_nav_menus(
         array(
 
@@ -394,3 +395,28 @@ if( function_exists('acf_add_local_field_group') ):
     ));
     
     endif;
+
+    /**
+     * 
+     * Customisation of Admin Area
+    */
+
+    
+    //Custom login page
+    function my_login_logo() { ?>
+        <style type="text/css">
+            #login h1 a, .login h1 a {
+                background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/logo-login.png);
+                padding-bottom: 30px;
+            }
+        </style>
+    <?php }
+    add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+    //Enqueue a Login Stylesheet
+    function login_screen_style() {
+        wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/assets/styles/style-login.css' );
+        wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/assets/scripts/style-login.js' );
+    }
+    add_action( 'login_enqueue_scripts', 'login_screen_style' );
