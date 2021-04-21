@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 20-04-2021 - 15:37
+# Setting up your WordPress theme.  - **Last Update:** 21-04-2021 - 16:35
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.3
++ **Version**: v2.4
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -628,6 +628,32 @@ function my_login_stylesheet() {
 }
 add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 ```
+
++ Hide/Remove Menu Elements
+
+```php
+
+//Hide/Remove Menu Items
+function custom_menu_page_removing() {
+    // remove_menu_page( $menu_slug );
+    
+    //remove_menu_page( 'index.php' );  
+}  
+add_action( 'admin_menu', 'custom_menu_page_removing' );
+
+
+remove_menu_page( 'index.php' );
+
+remove_menu_page( 'plugins.php' );
+
+```
++ Hide and Remove Sub Menus
+
++ Custom menu order for Admin area
+
++ 
+
+
 
 # To Come! 
 [Back to Top](#sections)

@@ -420,3 +420,96 @@ if( function_exists('acf_add_local_field_group') ):
         wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/assets/scripts/style-login.js' );
     }
     add_action( 'login_enqueue_scripts', 'login_screen_style' );
+
+    
+//Hide/Remove Menu Items
+function custom_menu_page_removing() {
+
+    // remove_menu_page( $menu_slug );  
+
+    //remove_menu_page( 'edit.php' );                                   // Hides Post Page Menu    
+    //remove_menu_page( 'upload.php' );                                 // Hides Media Menu  
+    //remove_menu_page( 'edit.php?post_type=page' );                    // Hides Page Menu
+    //remove_menu_page( 'edit-comments.php' );                          // Hides Comments Menu 
+    //remove_menu_page( 'index.php' );                                  // Admin Area Dashboard button
+    //remove_menu_page( 'plugins.php' );                                // Hides Plugins Page
+    //remove_menu_page( 'widgets.php' );                                // Hides Widgets Page                            
+    //remove_menu_page( 'themes.php' );                                 // Hides Appearance Menu
+    //remove_menu_page( 'users.php' );                                  // Hides User Roles page
+    //remove_menu_page( 'tools.php' );                                  // Hides Admin Area Tools Page 
+    //remove_menu_page( 'options-general.php' );                        // Hides Settings Menus  
+    remove_menu_page( 'customize.php' );                                // Hides WordPress Theme Customizer
+    remove_menu_page( 'nav-menus.php' );                              // Hides Nav Menus
+    remove_menu_page( 'theme-editor.php' );                           // Hides Theme editor
+
+    //remove_menu_page( 'edit.php?post_type=acf-field-group' );         // hide individual plugin  
+    //remove_menu_page( 'edit.php?post_type=custom_post' );             // "custom post" custom post type
+    //remove_menu_page( 'edit.php?post_type=movies' );                  // movies custom post type
+
+
+    //remove_menu_page( 'admin.php?page=cptui_manage_post_types' );     // ""
+    //remove_menu_page( 'admin.php?page=cptui_manage_post_types' );     // "" 
+
+}
+
+add_action( 'admin_menu', 'custom_menu_page_removing' );
+
+
+//Hide/Removes Menu Sub items;
+function wpdocs_adjust_the_wp_menu() {
+
+    //themes - appearance menu
+    $page = remove_submenu_page( 'themes.php', 'widgets.php' );
+    $page = remove_submenu_page( 'themes.php', 'customize.php' );
+    $page = remove_submenu_page( 'themes.php', 'customize.php?return=%2Fwp-admin%2Findex.php' );
+    $page = remove_submenu_page( 'themes.php', 'nav-menus.php' );
+    $page = remove_submenu_page( 'themes.php', 'theme-editor.php' );
+
+    //settings menu
+    remove_submenu_page( 'options-general.php', 'options-discussion.php' );
+    remove_submenu_page( 'options-general.php', 'options-writing.php' );
+    remove_submenu_page( 'options-general.php', 'options-reading.php' );
+    remove_submenu_page( 'options-general.php', 'options-media.php' );
+    remove_submenu_page( 'options-general.php', 'options-permalink.php' );
+    remove_submenu_page( 'options-general.php', 'options-privacy.php' );
+
+    //users
+    remove_submenu_page( 'users.php', 'user-new.php' );
+    remove_submenu_page( 'users.php', 'profile.php' );
+
+    //plugins
+    remove_submenu_page( 'plugins.php', 'plugin-install.php' );
+    remove_submenu_page( 'plugins.php', 'plugin-editor.php' );
+
+
+    // $page[0] is the menu title
+    // $page[1] is the minimum level or capability required
+    // $page[2] is the URL to the item's file
+}
+add_action( 'admin_menu', 'wpdocs_adjust_the_wp_menu', 999 );
+
+//Custom menu order for Admin area
+
+function custom_menu_order($menu_ord) {
+    if (!$menu_ord) return true;
+    return array(
+
+        'edit.php',
+        'edit.php',                       
+        'upload.php',    
+        'edit.php?post_type=page', 
+        'edit-comments.php',          
+        'index.php',                         
+        'plugins.php',              
+        'widgets.php',                            
+        'themes.php',                  
+        'users.php',                   
+        'tools.php',                          
+        'options-general.php', 
+        'index.php',         
+    );
+}
+
+add_filter('custom_menu_order', 'custom_menu_order');
+add_filter('menu_order', 'custom_menu_order');
+
