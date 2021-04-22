@@ -37,6 +37,7 @@ function enqueue_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
 
+
 /**
  * 
  * Menus 
@@ -56,8 +57,6 @@ function register_theme_menus() {
 
 //when wordpress is initialising, call the above function
 add_action('init', 'register_theme_menus');
-
-
 
 
 /**
@@ -106,7 +105,6 @@ apply_filters( 'paginate_links', $link ); */
  * 
  * Custom Post Type in Code
  */
-
 
 //Function for creating a "Movies" custom post type
 function create_post_type() {
@@ -204,8 +202,6 @@ if( function_exists('acf_add_local_field_group') ):
     ));
 
 endif;
-
-
 
 function create_post_type_example() {
 
@@ -396,30 +392,30 @@ if( function_exists('acf_add_local_field_group') ):
     
     endif;
 
-    /**
-     * 
-     * Customisation of Admin Area
-    */
 
-    
-    //Custom login page
-    function my_login_logo() { ?>
-        <style type="text/css">
-            #login h1 a, .login h1 a {
-                background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/logo-login.png);
-                padding-bottom: 30px;
-            }
-        </style>
-    <?php }
-    add_action( 'login_enqueue_scripts', 'my_login_logo' );
+/**
+ * 
+ * Customisation of Admin Area
+*/
+
+//Custom login page
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/logo-login.png);
+            padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
 
 
-    //Enqueue a Login Stylesheet
-    function login_screen_style() {
-        wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/assets/styles/style-login.css' );
-        wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/assets/scripts/style-login.js' );
-    }
-    add_action( 'login_enqueue_scripts', 'login_screen_style' );
+//Enqueue a Login Stylesheet
+function login_screen_style() {
+    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/assets/styles/style-login.css' );
+    wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/assets/scripts/style-login.js' );
+}
+add_action( 'login_enqueue_scripts', 'login_screen_style' );
 
     
 //Hide/Remove Menu Items
@@ -459,7 +455,7 @@ add_action( 'admin_menu', 'custom_menu_page_removing' );
 function wpdocs_adjust_the_wp_menu() {
 
     //themes - appearance menu
-    $page = remove_submenu_page( 'themes.php', 'widgets.php' );
+    //$page = remove_submenu_page( 'themes.php', 'widgets.php' );
     $page = remove_submenu_page( 'themes.php', 'customize.php' );
     $page = remove_submenu_page( 'themes.php', 'customize.php?return=%2Fwp-admin%2Findex.php' );
     $page = remove_submenu_page( 'themes.php', 'nav-menus.php' );
@@ -486,10 +482,10 @@ function wpdocs_adjust_the_wp_menu() {
     // $page[1] is the minimum level or capability required
     // $page[2] is the URL to the item's file
 }
+
 add_action( 'admin_menu', 'wpdocs_adjust_the_wp_menu', 999 );
 
 //Custom menu order for Admin area
-
 function custom_menu_order($menu_ord) {
     if (!$menu_ord) return true;
     return array(
@@ -513,3 +509,61 @@ function custom_menu_order($menu_ord) {
 add_filter('custom_menu_order', 'custom_menu_order');
 add_filter('menu_order', 'custom_menu_order');
 
+
+/**
+ * 
+ * Add a Dashboard Widget
+ */
+
+ // Add Custom Dashboard Widget
+function add_custom_dashboard_widgets() {
+
+    wp_add_dashboard_widget(
+	    'wpexplorer_dashboard_widget', // Widget slug.
+	    'My Custom Dashboard Widget', // Title.
+	    'custom_dashboard_widget_content' // Display function.
+        );
+    }
+
+	add_action( 'wp_dashboard_setup', 'add_custom_dashboard_widgets' );
+
+
+/*
+*
+* Create the function to output the contents of your Dashboard Widget.
+*/
+
+	function custom_dashboard_widget_content() {
+	    // Display whatever it is you want to show.
+	    echo "WordPress Project Starter: Version 2.4.3 - Creating a child theme";
+	}
+
+
+/**
+ * 
+ * Child Theme Creation
+ */
+
+ //+ Child theme name: ```jgdm_wordpress_starter-child```
+
+ 
+/**
+ * 
+ * Remove Dashboard Widgets
+ */
+
+ // Remove dashboard widgets
+function remove_dashboard_meta() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
+		remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
+		remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' );
+		remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
+		remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+		remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
+		remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
+		remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
+	}
+}
+add_action( 'admin_init', 'remove_dashboard_meta' ); 
