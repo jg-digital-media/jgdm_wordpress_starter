@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 21-04-2021 - 16:35
+# Setting up your WordPress theme.  - **Last Update:** 22-04-2021 - 16:01
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.4
++ **Version**: v2.4.3
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -113,6 +113,20 @@ WordPress templates have an order of preference for Dynamic content that is used
 
 
 ```
+
+## Child Themes....
+
++ Per the Wordpress developer documentation, *"Using a child theme lets you upgrade the parent theme without affecting the customizations you’ve made to your site."*
+
+1. Create a folder for the child theme
+
+2. Create and use a style.css for child theme
+
+3. Create functions.php 
+
+4. Make sure child theme loads the stylng of the parent theme.
+
+5. Activate Child Theme
 
 ## WordPress Loops
 
@@ -649,10 +663,55 @@ remove_menu_page( 'plugins.php' );
 ```
 + Hide and Remove Sub Menus
 
+```php
+function wpdocs_adjust_the_wp_menu() {
+
+    //themes - appearance menu
+    $page = remove_submenu_page( 'themes.php', 'widgets.php' );
+
+}
+
+add_action( 'admin_menu', 'wpdocs_adjust_the_wp_menu', 999 );
+```
+
 + Custom menu order for Admin area
 
-+ 
+```php
+function custom_menu_order($menu_ord) {
+    if (!$menu_ord) return true;
+    return array(
 
+        'edit.php',
+        //
+    )
+}
+
+```
+
++ Add a Dashboard widget
+```php
+// Add Custom Dashboard Widget
+function add_custom_dashboard_widgets() {
+
+    wp_add_dashboard_widget(
+	    'wpexplorer_dashboard_widget', // Widget slug.
+	    'My Custom Dashboard Widget', // Title.
+	    'custom_dashboard_widget_content' // Display function.
+        );
+    }
+
+	add_action( 'wp_dashboard_setup', 'add_custom_dashboard_widgets' );
+
+/**
+* Create the function to output the contents of your Dashboard Widget.
+*/
+
+	function custom_dashboard_widget_content() {
+	    // Display whatever it is you want to show.
+	    echo "Hello there, I'm a Dashboard Widget. Edit me!";
+	}
+
+```
 
 
 # To Come! 
@@ -660,8 +719,9 @@ remove_menu_page( 'plugins.php' );
 
 + Customise the Admin Area
 + Customise login form
-+ Step 1 - Creating a Child Theme
++ Creating a Child Theme
 + Code Syntax Formatting and displaying them in a WordPress Theme
++ Add Custom Dashboard Widget
 
 ...
 
