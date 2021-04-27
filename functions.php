@@ -535,7 +535,7 @@ function add_custom_dashboard_widgets() {
 
 	function custom_dashboard_widget_content() {
 	    // Display whatever it is you want to show.
-	    echo "WordPress Project Starter: Version 2.4.3 - Creating a child theme";
+	    echo "WordPress Project Starter: Version 2.4.4 - Creating a child theme";
 	}
 
 
