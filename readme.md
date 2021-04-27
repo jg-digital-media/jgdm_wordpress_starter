@@ -719,11 +719,11 @@ function add_custom_dashboard_widgets() {
 # To Come! 
 [Back to Top](#sections)
 
-+ Customise the Admin Area
-+ Customise login form
+
 + Creating a Child Theme
 + Code Syntax Formatting and displaying them in a WordPress Theme
 + Add Custom Dashboard Widget
++ WP Customizer API
 
 ...
 
