@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 22-04-2021 - 16:01
+# Setting up your WordPress theme.  - **Last Update:** 27-04-2021 - 16:30
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.4.3
++ **Version**: v2.4.4
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -31,7 +31,9 @@
 
 + Feel free to switch out the included **screenshot.png** file with your own theme image of **800px** width and **600px** height.
 
-+ Blog pages are currently show at most **40** pages on my installaton. You an change this setting via ```Settings ----> Reading``` in the Admin area.
++ Blog pages are currently show at most **40** pages on my installation. You an change this setting via ```Settings ----> Reading``` in the Admin area.
+
++ The child and parent theme should be located in the ```wp-content/themes``` directory.
 
 ### Templates to page
 
@@ -114,7 +116,7 @@ WordPress templates have an order of preference for Dynamic content that is used
 
 ```
 
-## Child Themes....
+## Child Themes
 
 + Per the Wordpress developer documentation, *"Using a child theme lets you upgrade the parent theme without affecting the customizations you’ve made to your site."*
 
@@ -124,7 +126,7 @@ WordPress templates have an order of preference for Dynamic content that is used
 
 3. Create functions.php 
 
-4. Make sure child theme loads the stylng of the parent theme.
+4. Make sure child theme loads the styling of the parent theme.
 
 5. Activate Child Theme
 
