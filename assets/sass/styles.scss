@@ -14,14 +14,17 @@
 @import "config/fonts";
 @import "config/utilities";
 
-//
+//sections
 @import "inc/header";
+
+
+//content
 @import "main";
 @import "sections/primary";
 @import "sections/secondary";
 @import "sections/wordpress";
 
-
+//footer
 @import "inc/footer.scss";
 
 
