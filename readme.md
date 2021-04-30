@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 29-04-2021 - 12:53
+# Setting up your WordPress theme.  - **Last Update:** 30-04-2021 - 11:30
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.4.5
++ **Version**: v2.4.6
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -23,15 +23,17 @@
 
 + Your theme will need to be uploaded to a WordPress installation via WordPress.org.
 
++ You will need to set up a backend database to power your unique/dynamic content; store your plugins and set up your themes.
+
 + Each WordPress theme requires at least an **index.php**, a **functions.php**, a **style.css** and a **screenshot.png**. 
 
-+ You will need a local server via localhost or a public web host in order to house your WordPress website.
++ Each WordPress plugin requires its own directory and php file of the same name and should be included in the ```wp-content/plugins``` directory of a WordPress installation.
 
-+ You will need to set up a backend database to power your unique/dynamic content; store your plugins and set up your themes.
++ You will need a local server via localhost or a public web host in order to store your WordPress website.
 
 + Feel free to switch out the included **screenshot.png** file with your own theme image of **800px** width and **600px** height.
 
-+ Blog pages are currently show at most **40** pages on my installation. You an change this setting via ```Settings ----> Reading``` in the Admin area.
++ Blog pages are currently set show at most **1** page(s) on my installation. You can change this setting via ```Settings ----> Reading``` page in the Admin area.
 
 + The child and parent theme should be located in the ```wp-content/themes``` directory.
 
@@ -709,6 +711,78 @@ function custom_menu_order($menu_ord) {
 
 ```
 
+## Plugin Development
+
+```php
+<?php 
+
+/**
+* Plugin Name: Name of Plugin
+* Plugin URI: UTL of plugin goes here
+* Description: Plugin details should go here
+* Version: 1.0.0
+* Author: Your name as the developer/author of the plugin to go here
+* Author URI: Your URL
+* License: GPL2
+*/
+
+
+//define( 'jgdm-plugin-dev', '1.0.0' );
+
+
+/***
+
+Store and Enqueue main Plugin Assets
+
+****/
+$plugin_styling = plugins_url( 'app.css', 'jgdm-plugin-dev.php' );
+$plugin_script = plugins_url( 'app.js', 'jgdm-plugin-dev.php' );
+//returns full URL to myscript.js, such as example.com/wp-content/plugins/myplugin/myscript.js.
+
+
+
+wp_enqueue_script( 'jgdm_plugin_script', $plugin_script, false, false, false );
+wp_enqueue_style( 'jgdm_plugin_stylesheet', $plugin_styling, false, false, false );
+
+
+/***
+ * Plugin lifecycle hooks
+***/
+
+//activate plugin
+function activate_jgdm_plugin() {
+
+    //add_option( 'Activated_Plugin', 'Plugin-Slug' );
+  
+    /* activation code here */
+    var_dump("activation function");
+}
+  
+register_activation_hook( 'activate_jgdm-plugin-dev.php', 'activate_jgdm_plugin' );
+
+
+//deactivate plugin
+function deactivate_jgdm_plugin() {
+
+    //add_option( 'Activated_Plugin', 'Plugin-Slug' );
+
+    /* activation code here */
+    var_dump("deactivation function");
+}
+  
+register_activation_hook( 'deactivate_jgdm-plugin-dev.php', 'deactivate_jgdm_plugin' );
+
+
+//hook to uninstall plugin
+function jgdm_uninstall_plugin(){
+    //register_uninstall_hook( 'jgdm-plugin-dev', 'jgdm_uninstall_plugin' );
+    var_dump("uninstall function");
+}
+
+register_uninstall_hook('jgdm-plugin-dev', 'jgdm_uninstall_plugin');
+
+```
+
 + Add a Dashboard widget
 
 ```php
@@ -743,7 +817,7 @@ function add_custom_dashboard_widgets() {
 + Add Custom Dashboard Widget (in progress)
 + Code Syntax Formatting and displaying them in a WordPress Theme
 + WP Customizer API
-+ Plugin Development
++ Plugin Development (in progress)
 
 ...
 
