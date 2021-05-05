@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 30-04-2021 - 11:30
+# Setting up your WordPress theme.  - **Last Update:** 05-05-2021 - 13:30
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.4.6
++ **Version**: v2.4.7
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -27,7 +27,7 @@
 
 + Each WordPress theme requires at least an **index.php**, a **functions.php**, a **style.css** and a **screenshot.png**. 
 
-+ Each WordPress plugin requires its own directory and php file of the same name and should be included in the ```wp-content/plugins``` directory of a WordPress installation.
++ Each WordPress plugin requires its own directory, php file of the same name and should be included in the ```wp-content/plugins``` directory of a WordPress installation.
 
 + You will need a local server via localhost or a public web host in order to store your WordPress website.
 
@@ -35,7 +35,7 @@
 
 + Blog pages are currently set show at most **1** page(s) on my installation. You can change this setting via ```Settings ----> Reading``` page in the Admin area.
 
-+ The child and parent theme should be located in the ```wp-content/themes``` directory.
++ The child and parent theme should be located in the ```wp-content/themes``` directory of a WordPress installation.
 
 ### Templates to page
 
@@ -48,7 +48,7 @@ Assign WordPress Pages to the following Template files.
 + home.php
 + page.php
 
-Templates are assigned in template files using the following comment steucture
+Templates are assigned in template files using the following comment structure
 
 ```php
 /*
@@ -101,11 +101,16 @@ Templates are assigned in template files using the following comment steucture
 How to customise your theme.
 
 + Reading:  http://localhost/wordpress/subdomain/articles/ - "Homepage" setting on "Readings" page is set up to display the "latest posts"
+
 + Archive Pages:  The Theme's archive.php template requires a page with a ```archive/``` slug.
+
 + Author Pages:  The theme's author.php template requires ```the_author_posts_link(); ``` to link to the posts author. a page with a ```author/``` slug. At this time there is no template file for a specific author.
+
 + Add your own theme image by swapping out your theme's ```screenshot.png``` file.
+
 + The menu is assigned to the menu slug ```"main_menu"```.
-+ Plugin directories should be added to the ```wp-content/plugins``` folder in your WordPress installation. As an example. a directory called ```jgdm-plugin-dev``` which at minimum should contain ```jgdm-plugin.dev.php``` as the main PHP file.
+
++ Plugin directories should be added to the ```wp-content/plugins``` folder in your WordPress installation. As an example' a directory called ```jgdm-plugin-dev``` which at minimum should contain ```jgdm-plugin.dev.php``` as the main PHP file.
 
 # Code Snippets
 [Back to Top](#sections)
@@ -372,7 +377,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 + By Default, this seems to display page results as well as post results.
 
-+ Search Exclude as one way to filter what post formats are returned by WordPress Search - https://wordpress.org/plugins/search-exclude/ 
++ Search Exclude Plugin as one way to filter what post formats are returned by WordPress Search - https://wordpress.org/plugins/search-exclude/ 
 
 
 ```php
@@ -388,7 +393,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ### WordPress Loop for pagination with WP Query
 
-+ *This repository will be fixed to reflect pagintion on the main query rather than a custom query*
++ *This repository will be fixed to reflect pagination on the main query rather than a custom query*
 
 ```php
 
@@ -454,12 +459,15 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ## Recommended WordPress Plugins
 
-+ **Crayon Syntax Highlighter** - Version 2.8.4 | By Aram Kocharyan 
+
 + **Akismet Anti-Spam** - Version 4.1.9 | By Automattic 
 + **Yoast SEO** - Version 16.0.2 | By Team Yoast  
 + **Advanced Custom Fields** - Version 5.9.5 | By Elliot Condon  
-+ **Custom Post Type UI** - Version 1.8.2 | By WebDevStudios 
++ **Custom Post Type UI** - Version 1.9.1 | By WebDevStudios
++ **Crayon Syntax Highlighter** - Version 2.8.4 | By Aram Kocharyan  - check 
 + **Maintenance Mode Free** - Version 1.2 | By ShapedPlugin 
++ **Code Syntax Block** - Version 2.0.3  By Marcus Kazmierczak 
+
 
 ## Pagination 
 
@@ -510,6 +518,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 ## Custom Post Types
 
 + As it stands this theme uses the Custom Post Type UI and Advanced Custom Fields plugins to use Custom Post Types. You will need to download these plugins in your WordPress installation. 
+
   + You should fill in as a minimum
     + Post Type Slug:  custom_post
     + Plural Label:	 Custom Posts
@@ -730,24 +739,26 @@ function custom_menu_order($menu_ord) {
 //define( 'jgdm-plugin-dev', '1.0.0' );
 
 
-/***
+/**
+ * 
+ *  
+ * Store and Enqueue main Plugin Assets 
+ ****/
 
-Store and Enqueue main Plugin Assets
-
-****/
 $plugin_styling = plugins_url( 'app.css', 'jgdm-plugin-dev.php' );
 $plugin_script = plugins_url( 'app.js', 'jgdm-plugin-dev.php' );
+
 //returns full URL to myscript.js, such as example.com/wp-content/plugins/myplugin/myscript.js.
-
-
 
 wp_enqueue_script( 'jgdm_plugin_script', $plugin_script, false, false, false );
 wp_enqueue_style( 'jgdm_plugin_stylesheet', $plugin_styling, false, false, false );
 
 
-/***
+/**
+ * 
+ * 
  * Plugin lifecycle hooks
-***/
+ ****/
 
 //activate plugin
 function activate_jgdm_plugin() {
@@ -783,6 +794,12 @@ register_uninstall_hook('jgdm-plugin-dev', 'jgdm_uninstall_plugin');
 
 ```
 
+
++ For the plugin tied to this installation look for the ```jgdm-plugin-dev``` in the ```assets/plugin``` folder of this repository.
+
++ You should then upload the compressed zip folder to the ```wp-content/plugins``` folder of the WordPress installation you're using.
+
+
 + Add a Dashboard widget
 
 ```php
@@ -811,6 +828,7 @@ function add_custom_dashboard_widgets() {
 
 
 # To Come! 
+
 [Back to Top](#sections)
 
 + Creating a Child Theme (in progress)
