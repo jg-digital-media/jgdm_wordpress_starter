@@ -14,6 +14,24 @@
             width: 80%;  }
         }
 
+        .filestamp {
+            background: #dcde6e;
+            padding: 0px 10px;
+            border-radius: 14px;
+            /* border-bottom: 5px solid black; */
+            width: auto;
+            /* display: inline-block; */
+            height: 33px;
+            text-decoration: underline;
+            vertical-align: top;
+            /* color: orange; */
+            width: 200px;
+
+            > p {
+                color: red;   
+            }
+        }
+
         h2 {
             color: $heading-primary;
 
