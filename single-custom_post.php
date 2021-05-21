@@ -23,34 +23,37 @@ $custom_post_type = new WP_Query(
 
 <section class = "primary">
 
+        <div class="filestamp">
+
             <p>single-custom_post.php</p>
+        </div>
 
-            <div class="content_one">
+        <div class="content_one">
 
-                <?php posts_nav_link(); ?>
+            <?php posts_nav_link(); ?>
 
-                    <p><a href="<?php echo get_site_url(); ?>/article" class="goto_page">Go to Articles List</a></p>
+                <p><a href="<?php echo get_site_url(); ?>/article" class="goto_page">Go to Articles List</a></p>
+            
+                <div class="next"> <?php next_post_link( '%link','Newer' ); ?> </div>  
+
+                <span>Post Nav</span>
+
+                <div class="last"> <?php previous_post_link( '%link', 'Older' ); ?> </div>  
+            
+                <p> <?php the_field("example_field_1"); ?> </p>
+                    
+                <p> <?php the_field("example_field_2"); ?> </p>
                 
-                    <div class="next"> <?php next_post_link( '%link','Newer' ); ?> </div>  
-
-                    <span>Post Nav</span>
-
-                    <div class="last"> <?php previous_post_link( '%link', 'Older' ); ?> </div>  
+                <p> <?php the_field("example_field_3"); ?> </p>
                 
-                    <p> <?php the_field("example_field_1"); ?> </p>
-                        
-                    <p> <?php the_field("example_field_2"); ?> </p>
-                    
-                    <p> <?php the_field("example_field_3"); ?> </p>
-                    
-                    <p> <?php the_field("example_field_4"); ?> </p>
-                    
-                    <p> <?php the_field("example_field_5"); ?> </p>
-                    
-                    <p> <?php the_field("example_field_6"); ?> </p>
+                <p> <?php the_field("example_field_4"); ?> </p>
+                
+                <p> <?php the_field("example_field_5"); ?> </p>
+                
+                <p> <?php the_field("example_field_6"); ?> </p>
 
-            </div>
+        </div>
 
-        </section>        
+</section>        
 
 <?php require "template-parts/footer.php";  ?>

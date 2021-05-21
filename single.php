@@ -19,7 +19,6 @@ $custom_post_type = new WP_Query(
 
 ?>
 
-
         <aside class="secondary">
 
             <?php require("template-parts/secondary-content.php"); ?>
@@ -28,7 +27,11 @@ $custom_post_type = new WP_Query(
 
         <section class="primary">
 
-            <p>single.php </p>
+            <div class="filestamp">
+
+                <p>single.php </p>
+                
+            </div>
 
             <p><a href="<?php echo get_site_url(); ?>/articles" class="goto_page">Back to article list</a></p>
             

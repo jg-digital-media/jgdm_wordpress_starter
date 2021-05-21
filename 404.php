@@ -10,7 +10,11 @@ Template Name: 404 Template
 
 <section class="primary">
 
-        <h2>404.php</h2>
+        <div class="filestamp">
+
+            <h2>404.php</h2>
+
+        </div>
 
         <p>Unfortunately there is no content to display. Click <a href="<?php echo get_site_url(); ?>">Back to Main List</a> here to go to the homepage or try a new search.</p>
 

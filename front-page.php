@@ -6,7 +6,11 @@
 
         <section class="primary">
 
-            <p>front-page.php</p>
+            <div class="filestamp">
+
+                <p>front-page.php</p>
+
+            </div>
 
             <h2> <?php bloginfo("site_title"); ?> </h2>
 

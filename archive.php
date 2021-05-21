@@ -12,7 +12,11 @@ Template Name: Archive Template
 
         <section class="primary">
 
-            <p>archive.php</p>
+            <div class="filestamp">
+
+                <p>archive.php</p>
+
+            </div>
 
             <a href="<?php echo get_site_url() . "/article"; ?>" class="goto_page" id="back_to_articles">Back to Main List</a>
 

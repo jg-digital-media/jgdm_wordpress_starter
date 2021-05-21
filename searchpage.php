@@ -12,7 +12,11 @@ Template Name: Search Page
 
         <section>
 
+        <div class="filestamp">
+
             <p>searchpage.php</p>
+
+        </div>
         
             <h2><?php the_title(); ?> - Search Result Page</h2>        
             

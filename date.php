@@ -11,7 +11,11 @@ Template Name: Archive Date Template
 
         <section class="primary">
 
+            <div class="filestamp">
+
                 <p> date.php</p>
+
+            </div>
 
                 <p> <a href="<?php echo get_site_url() . "/article"; ?>" class="goto_page" id="back_to_articles">Back to Main List</a> </p> 
 

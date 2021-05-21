@@ -11,7 +11,11 @@ Template Name: Author Main Template
 
     <section class="primary"> 
 
-        <p>author.php</p>
+        <div class="filestamp">
+
+            <p>author.php</p>
+
+        </div>
 
         <p> <a href="<?php echo get_site_url() ?>" class="goto_page">Go back to front page</a> </p>
 

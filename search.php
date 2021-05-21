@@ -11,7 +11,11 @@ Template Name: Index Template
 
         <section class="primary">
         
-            <p>search.php</p>
+            <div class="filestamp">
+
+                <p>search.php</p>
+
+            </div>
 
             <h2>This is the Search template.</h2>
 

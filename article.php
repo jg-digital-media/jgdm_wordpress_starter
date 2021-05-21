@@ -18,7 +18,11 @@ Template Name: Article List Template
 
         <section class="primary article">
 
-            <p>article.php</p>
+            <div class="filestamp">
+
+                <p>article.php</p>
+
+            </div>
 
             <p> <a href="<?php echo get_site_url() ?>" class="goto_page">Go back to front page</a> <p> 
 

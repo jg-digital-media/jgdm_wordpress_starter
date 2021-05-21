@@ -12,7 +12,11 @@ Template Name: Page Template
 
         <section class="primary">
 
-            <p>page.php</p>
+            <div class="filestamp">
+
+                <p>page.php</p>
+
+            </div>
 
             <p><a href="<?php echo get_site_url(); ?>/article" class="goto_page">Articles List<a></p>
 
