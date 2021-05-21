@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 05-05-2021 - 13:30
+# Setting up your WordPress theme.  - **Last Update:** 21-05-2021 - 12:00
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
