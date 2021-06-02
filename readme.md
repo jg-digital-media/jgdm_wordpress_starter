@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 21-05-2021 - 12:00
+# Setting up your WordPress theme.  - **Last Update:** 02-06-2021 - 14:33
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -115,15 +115,23 @@ How to customise your theme.
 # Code Snippets
 [Back to Top](#sections)
 
++ Template Hierarchy
++ Creating a Child Theme
++ WordPress Loops
++ WP Query
++ Post Pagination
++ WordPress Menu Areas
++ Widget Areas
++ Pagination
++ Search
++ Author and Archival Templates
++
+
 ## Template Hierarchy
 
 WordPress templates have an order of preference for Dynamic content that is used known as the Template Hierarchy.
 
-```php
-// Content to go here
-
-
-```
+A Link to the latest Template Hierarchy - https://developer.wordpress.org/files/2014/10/Screenshot-2019-01-23-00.20.04.png
 
 ## Creating a Child Theme
 
@@ -138,6 +146,47 @@ WordPress templates have an order of preference for Dynamic content that is used
 4. Make sure child theme loads the styling of the parent theme.
 
 5. Activate Child Theme
+
+A Child Theme shoulg go in the aame folder as the the rest of your themes
+
+Create a ```style.css``` for your child theme.
+
+```css
+
+/*
+Theme Name: Twenty Fifteen Child
+Theme URI: http://example.com/twenty-fifteen-child/
+description: >-
+  Twenty Fifteen Child Theme
+Author: John Doe
+Author URI: http://example.com
+Template: twentyfifteen
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+Text Domain: twenty-fifteen-child
+*/
+
+```
+
+To inherit the styles from the parent theme
+
+```css
+@import url("../twentyfifteen/style.css");
+```
+
+or a function like this
+
+```php
+
+function myprefix_theme_enqueue_styles() {
+    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+}
+add_action( 'wp_enqueue_scripts', 'myprefix_theme_enqueue_styles' ); 
+
+
+```
 
 ## WordPress Loops
 
