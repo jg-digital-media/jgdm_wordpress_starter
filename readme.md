@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 02-06-2021 - 14:33
+# Setting up your WordPress theme.  - **Last Update:** 25-06-2021 - 08:58
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.4.7
++ **Version**: v2.4.8
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -33,20 +33,22 @@
 
 + Feel free to switch out the included **screenshot.png** file with your own theme image of **800px** width and **600px** height.
 
++ Theme contains one editable menu in a specific menu area/location. 
+
 + Blog pages are currently set show at most **1** page(s) on my installation. You can change this setting via ```Settings ----> Reading``` page in the Admin area.
 
 + The child and parent theme should be located in the ```wp-content/themes``` directory of a WordPress installation.
 
-### Templates to page
++ Create some standard Wordpress Posts via the admin area, ```Dashboard -> Posts``` which will appear in front-page.page, home.php and article.php templates.
 
-Assign WordPress Pages to the following Template files.
++ Assign WordPress Pages to the following Template files. ```Dashboard -> Pages```
 
-+ archive.php
-+ author.php
-+ search.php
-+ custom_post.php
-+ home.php
-+ page.php
+  + archive.php
+  + author.php
+  + search.php
+  + custom_post.php
+  + home.php
+  + page.php
 
 Templates are assigned in template files using the following comment structure
 
@@ -55,6 +57,8 @@ Templates are assigned in template files using the following comment structure
  Template Name:  Template Identifier Goes Here!
 */
 ```
+
+Look for the template in the "page attributes" tab in ghe admin area for the specific WordPress page.
 
 ### How the Design works
 
@@ -135,7 +139,7 @@ A Link to the latest Template Hierarchy - https://developer.wordpress.org/files/
 
 ## Creating a Child Theme
 
-+ Per the Wordpress developer documentation, *"Using a child theme lets you upgrade the parent theme without affecting the customizations you’ve made to your site."*
++ Per the Wordpress developer documentation, *"Using a child theme lets you upgrade the parent theme without affecting the customizations you’ve made to your WordPress site."*
 
 1. Create a folder for the child theme
 
@@ -147,7 +151,7 @@ A Link to the latest Template Hierarchy - https://developer.wordpress.org/files/
 
 5. Activate Child Theme
 
-A Child Theme shoulg go in the aame folder as the the rest of your themes
+A Child Theme should go in the same folder as the the rest of your themes (i.e. ```wp-content/themes```)
 
 Create a ```style.css``` for your child theme.
 
@@ -156,8 +160,7 @@ Create a ```style.css``` for your child theme.
 /*
 Theme Name: Twenty Fifteen Child
 Theme URI: http://example.com/twenty-fifteen-child/
-description: >-
-  Twenty Fifteen Child Theme
+description: Twenty Fifteen Child Theme
 Author: John Doe
 Author URI: http://example.com
 Template: twentyfifteen
@@ -880,10 +883,9 @@ function add_custom_dashboard_widgets() {
 
 [Back to Top](#sections)
 
-+ Creating a Child Theme (in progress)
 + Add Custom Dashboard Widget (in progress)
 + Code Syntax Formatting and displaying them in a WordPress Theme
-+ WP Customizer API
++ WP Customizer API (in progress)
 + Plugin Development (in progress)
 
 ...

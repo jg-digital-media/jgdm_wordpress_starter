@@ -434,9 +434,9 @@ function custom_menu_page_removing() {
     //remove_menu_page( 'users.php' );                                  // Hides User Roles page
     //remove_menu_page( 'tools.php' );                                  // Hides Admin Area Tools Page 
     //remove_menu_page( 'options-general.php' );                        // Hides Settings Menus  
-    remove_menu_page( 'customize.php' );                                // Hides WordPress Theme Customizer
-    remove_menu_page( 'nav-menus.php' );                              // Hides Nav Menus
-    remove_menu_page( 'theme-editor.php' );                           // Hides Theme editor
+    //remove_menu_page( 'customize.php' );                              // Hides WordPress Theme Customizer
+    //remove_menu_page( 'nav-menus.php' );                              // Hides Nav Menus
+    remove_menu_page( 'theme-editor.php' );                             // Hides Theme editor
 
     //remove_menu_page( 'edit.php?post_type=acf-field-group' );         // hide individual plugin  
     //remove_menu_page( 'edit.php?post_type=custom_post' );             // "custom post" custom post type
@@ -567,3 +567,14 @@ function remove_dashboard_meta() {
 	}
 }
 add_action( 'admin_init', 'remove_dashboard_meta' ); 
+
+/**
+ * 
+ * WP Customizer API
+ */
+
+ // Add a new section
+ // Add Setting Section
+ // Adding a new control - linked to setting and section
+ // Live CSS Example
+ // JS Example
