@@ -21,7 +21,7 @@ Template Name: Index Template
 
             <p>This is where the catch all template lives and serves as a home page template. </p>
 
-            <p><a href="<?php echo get_site_url(); ?>/article" class="goto_page">Go to Articles List</a></p>
+            <p><a href="<?php echo get_site_url(); ?>/articles" class="goto_page">Go to Full Articles List</a></p>
             <p><a href="<?php echo get_site_url(); ?>/custom/">Custom Post Type.</a></p>
 
             <ul class="article_list"> 
@@ -35,7 +35,7 @@ Template Name: Index Template
                     $main_post_list = new WP_Query(
                             array( 
                                 'post_type'=>'post',
-                                'posts_per_page' => 10,
+                                //'posts_per_page' => 10,
                                 'paged'=> $paged
                                 )
                             ); 

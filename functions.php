@@ -464,7 +464,7 @@ function wpdocs_adjust_the_wp_menu() {
     //settings menu
     remove_submenu_page( 'options-general.php', 'options-discussion.php' );
     remove_submenu_page( 'options-general.php', 'options-writing.php' );
-    remove_submenu_page( 'options-general.php', 'options-reading.php' );
+    //remove_submenu_page( 'options-general.php', 'options-reading.php' );
     remove_submenu_page( 'options-general.php', 'options-media.php' );
     remove_submenu_page( 'options-general.php', 'options-permalink.php' );
     remove_submenu_page( 'options-general.php', 'options-privacy.php' );

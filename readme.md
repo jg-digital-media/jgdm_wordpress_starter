@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 25-06-2021 - 08:58
+# Setting up your WordPress theme.  - **Last Update:** 28-06-2021 - 13:05
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.4.8
++ **Version**: v2.4.9
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -82,7 +82,8 @@ Look for the template in the "page attributes" tab in ghe admin area for the spe
 
 ### Template files included:
 
-+ index.php 
++ index.php
++ home.php 
 + functions.php
 + page.php 
 + front-page.php
@@ -299,9 +300,17 @@ add_action( 'wp_enqueue_scripts', 'myprefix_theme_enqueue_styles' );
 
 ```
 
-###  Post Pagination
+###  Post Pagination (WordPress Core)
 
-+ **Important:** Pagination functions work on the main query, not the custom query.
++ **Important:** Pagination functions work on the main WordPress core query, not the custom query.
+
++ The pagination in this theme has been tested for reading settings that make for a ```front-page.php``` or a ```home.php``` template (i.e. "your latest posts" or "a static page")
+
++ On the article page I've given a list of up to 50.   And I removed the red border for the pagination area since no pagination works on this custom template.
+
++ Posts per page option in template code file overrides the admin area setting.  ``` settings ----> reading```
+
++ If a homepage has not been selected, home.php is the pagination page while the articles.php template shows the full article list
 
 ```html
     <!-- Pagination -->

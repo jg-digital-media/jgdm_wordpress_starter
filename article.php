@@ -24,20 +24,26 @@ Template Name: Article List Template
 
             </div>
 
-            <p> <a href="<?php echo get_site_url() ?>" class="goto_page">Go back to front page</a> <p> 
+            <p> <a href="<?php echo get_site_url() ?>" class="goto_page">Go back to Homepage</a> <p> 
 
             <h2>Article list</h2>          
 
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, blanditiis. Et necessitatibus alias eligendi accusamus soluta aperiam ratione libero fuga. Debitis ab voluptatibus dolorum, repudiandae voluptatum fugit quasi provident ea.</p>
 
-            <ul class="article_list">            
+            <ul class="article_list">  
 
-                <?php $main_post_list = new WP_Query(
-                    array( 
-                        'post_type'=>'post',
-                        'posts_per_page' => 10
-                        )
-                    ); ?>
+                <?php
+                    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;          
+
+                    $main_post_list = new WP_Query(
+
+                        array( 
+                            'post_type'=>'post',
+                            'posts_per_page' => 50,
+                            'paged' => $paged
+                            )
+                        ); 
+                    ?>
 
                 <?php if ( have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
 
@@ -52,7 +58,7 @@ Template Name: Article List Template
                 
             </ul>   
             
-           <!-- Pagination -->
+           <!-- Pagination 
            <div class="pagination">
                     
                 <?php echo paginate_links(); ?>
@@ -63,7 +69,7 @@ Template Name: Article List Template
                 
                 <span> <?php next_posts_link('Go to Next Page &gt;&gt;'); ?> </span> 
     
-            </div>
+            </div>-->
 
         </section>
 
