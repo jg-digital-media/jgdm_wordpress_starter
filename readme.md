@@ -1,9 +1,9 @@
-# Setting up your WordPress theme.  - **Last Update:** 28-06-2021 - 13:05
+# Setting up your WordPress theme.  - **Last Update:** 16-02-2021 - 11:40
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
-+ **Version**: v2.4.9
++ **Theme Version**: v2.5.0
 + **Description**: This Repository contains the theme files you will need to help you get started building your own WordPress Theme. Use this to modify your themes for your own needs rather than starting from scratch.
 
 ## **Sections**
@@ -26,6 +26,8 @@
 + You will need to set up a backend database to power your unique/dynamic content; store your plugins and set up your themes.
 
 + Each WordPress theme requires at least an **index.php**, a **functions.php**, a **style.css** and a **screenshot.png**. 
+
++ If you wish, you can use the SASS precompiler to generate your theme styles style.css. If you are using SASS, the watch command in your command line tool is `sass --watch style.scss:style.css` in the project root directory.
 
 + Each WordPress plugin requires its own directory, php file of the same name and should be included in the ```wp-content/plugins``` directory of a WordPress installation.
 
@@ -50,7 +52,7 @@
   + home.php
   + page.php
 
-Templates are assigned in template files using the following comment structure
+### Templates are assigned in template files using the following comment structure
 
 ```php
 /*
@@ -105,13 +107,13 @@ Look for the template in the "page attributes" tab in ghe admin area for the spe
 
 How to customise your theme.
 
-+ Reading:  http://localhost/wordpress/subdomain/articles/ - "Homepage" setting on "Readings" page is set up to display the "latest posts"
++ Reading:  http://localhost/wordpress/subdomain/articles/ - The "`Homepage`" setting on "`Reading`" page of the admin area is set up to display the "latest posts" i.e. the Posts on the database.
 
-+ Archive Pages:  The Theme's archive.php template requires a page with a ```archive/``` slug.
++ Archive Pages:  The Theme's `archive.php` template requires a page with a ```archive/``` slug.
 
-+ Author Pages:  The theme's author.php template requires ```the_author_posts_link(); ``` to link to the posts author. a page with a ```author/``` slug. At this time there is no template file for a specific author.
++ Author Pages:  The theme's `author.php` template requires ```the_author_posts_link(); ``` to link to the posts author. a page with a ```author/``` slug. At this time there is no template file for a specific author.
 
-+ Add your own theme image by swapping out your theme's ```screenshot.png``` file.
++ Add your own WordPress Theme image by swapping out your theme's ```screenshot.png``` file and placing it in the themes root level.
 
 + The menu is assigned to the menu slug ```"main_menu"```.
 
