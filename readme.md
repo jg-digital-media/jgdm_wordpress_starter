@@ -1,4 +1,4 @@
-# Setting up your WordPress theme.  - **Last Update:** 16-02-2021 - 11:40
+# Setting up your WordPress theme.- **Last Update:** 21-04-2023 - 09:34
 
 
 + **Theme Name:**: JGDM WordPress Starter Repository
@@ -132,7 +132,6 @@ How to customise your theme.
 + Pagination
 + Search
 + Author and Archival Templates
-+
 
 ## Template Hierarchy
 
@@ -186,10 +185,13 @@ or a function like this
 
 ```php
 
-function myprefix_theme_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-}
-add_action( 'wp_enqueue_scripts', 'myprefix_theme_enqueue_styles' ); 
+    <?php
+
+    function myprefix_theme_enqueue_styles() {
+        wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+    }
+
+    add_action( 'wp_enqueue_scripts', 'myprefix_theme_enqueue_styles' ); 
 
 
 ```
@@ -200,24 +202,20 @@ add_action( 'wp_enqueue_scripts', 'myprefix_theme_enqueue_styles' );
 
 ```php
 
-<?php
-
-
-    /* Start the Loop. */
+    <!-- Start the Loop. -->
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
         <?php the_content(); ?>                
         
     <?php endwhile; else : ?>
 
-        /* Content to display when no page/post content is available. */
+        <!-- Content to display when no page/post content is available. -->
         <p>Unfortunately there is no content to display Please add a new post or try a new search.</p>
 
         <p> <?php get_search_form(); ?> </p>
 
     <?php endif; ?>
 
-?>
 
 ```
 
@@ -287,7 +285,7 @@ add_action( 'wp_enqueue_scripts', 'myprefix_theme_enqueue_styles' );
 
 ### WordPress Loop - WP Query
 
-```html
+```php
     <?php $main_post_list = new WP_Query(array( 'post_type'=>'post' )); ?>
 
     <?php if ( $main_post_list->have_posts() ) : while ( $main_post_list->have_posts() ) : $main_post_list->the_post(); ?>
@@ -314,7 +312,7 @@ add_action( 'wp_enqueue_scripts', 'myprefix_theme_enqueue_styles' );
 
 + If a homepage has not been selected, home.php is the pagination page while the articles.php template shows the full article list
 
-```html
+```php
     <!-- Pagination -->
     <div class="navigation">
         
@@ -373,33 +371,36 @@ function register_theme_menus() {
 
 ```php
 
-/**
- * 
- * Apply Theme Scripts
- */
+    <?php
+    /**
+     * 
+     * Apply Theme Scripts
+     */
 
-function enqueue_scripts() {
-    wp_enqueue_script( 'main_app_script', get_template_directory_uri() . '/assets/scripts/app.js' );
-    
-}
+    function enqueue_scripts() {
+        wp_enqueue_script( 'main_app_script', get_template_directory_uri() . '/assets/scripts/app.js' );
 
-add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
+    }
+
+    add_action( 'wp_enqueue_scripts', 'enqueue_scripts' );
 ```
 
 + Enqueue Styles
 
 ```php
-/**
- * 
- * Apply Styling
- */
 
-function theme_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
+<?php
+    /**
+     * 
+     * Apply Styling
+     */
 
-}
+    function theme_enqueue_styles() {
+        wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 
-add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
+    }
+
+    add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 ```
 
 ##  Widget Areas
@@ -407,21 +408,23 @@ add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 + Widgets Generation  - Create a Widget Area in functions.php
 
 ```php
-function widget_area_one() {
+<?php
 
-	register_sidebar( array(
-		'name'          => 'Search',
-        'id'            => 'widgetarea_search',
-        'description'   => 'Search Widget Area'
-		//'before_widget' => '<div>',
-		//..'after_widget'  => '</div>',
-		//'before_title'  => '<h2 class="rounded">',
-		//'after_title'   => '</h2>',
-	) );
+    function widget_area_one() {
 
-}
+        register_sidebar( array(
+            'name'          => 'Search',
+            'id'            => 'widgetarea_search',
+            'description'   => 'Search Widget Area'
+            //'before_widget' => '<div>',
+            //..'after_widget'  => '</div>',
+            //'before_title'  => '<h2 class="rounded">',
+            //'after_title'   => '</h2>',
+        ) );
 
-add_action( 'widgets_init', 'widget_area_one' );
+    }
+
+    add_action( 'widgets_init', 'widget_area_one' );
 ?>
 
 ```
@@ -491,13 +494,11 @@ add_action( 'widgets_init', 'widget_area_one' );
 + ```get_search_form()``` template - to generate WordPress search text box and button functionality.
 
 ```php
-
-<?php 
  
-    //wordpress method to display search form
+    <!-- WordPress method to display search form -->
     <p> <?php get_search_form(); ?> </p>
 
- ?>
+
 ```
 
 ## Author and Archival Templates
@@ -628,7 +629,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 
 ```php
-
+    <?php
     //Custom fields in code
     if( function_exists('acf_add_local_field_group') ):
         
@@ -658,6 +659,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 ```php
 
+<?php
  //custom fields
  'fields' => array(
         array(
@@ -710,7 +712,7 @@ add_action( 'widgets_init', 'widget_area_one' );
 
 + For example, if you would like to change the WordPress logo on the standard login page to something else, you can do so with the following piece of code:
 
-Source Material: https://torquemag.io/2016/08/customize-wordpress-backend-clients/
+Source Material: [https://torquemag.io/2016/08/customize-wordpress-backend-clients/](https://torquemag.io/2016/08/customize-wordpress-backend-clients/)
 
 +  Customize the Login Page
 
@@ -731,55 +733,59 @@ add_action( 'login_enqueue_scripts', 'my_login_logo' );
 + Enqueue a Login Stylesheet
 
 ```php
-function my_login_stylesheet() {
-    wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/style-login.css' );
-    wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/style-login.js' );
-}
-add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
+
+<?php 
+    function my_login_stylesheet() {
+        wp_enqueue_style( 'custom-login', get_template_directory_uri() . '/style-login.css' );
+        wp_enqueue_script( 'custom-login', get_template_directory_uri() . '/style-login.js' );
+    }
+    add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
 ```
 
 + Hide/Remove Menu Elements
 
 ```php
 
-//Hide/Remove Menu Items
-function custom_menu_page_removing() {
-    // remove_menu_page( $menu_slug );
-    
-    //remove_menu_page( 'index.php' );  
-}  
-add_action( 'admin_menu', 'custom_menu_page_removing' );
+    <?php 
+    //Hide/Remove Menu Items
+    function custom_menu_page_removing() {
+        // remove_menu_page( $menu_slug );
+
+        //remove_menu_page( 'index.php' );  
+    } 
+
+    add_action( 'admin_menu', 'custom_menu_page_removing' );
 
 
-remove_menu_page( 'index.php' );
-
-remove_menu_page( 'plugins.php' );
+    remove_menu_page( 'index.php' );
+    remove_menu_page( 'plugins.php' );
 
 ```
 + Hide and Remove Sub Menus
 
 ```php
-function wpdocs_adjust_the_wp_menu() {
+    <?php 
+    function wpdocs_adjust_the_wp_menu() {
+        //themes - appearance menu
+        $page = remove_submenu_page( 'themes.php', 'widgets.php' );
 
-    //themes - appearance menu
-    $page = remove_submenu_page( 'themes.php', 'widgets.php' );
+        }
 
-}
-
-add_action( 'admin_menu', 'wpdocs_adjust_the_wp_menu', 999 );
+        add_action( 'admin_menu', 'wpdocs_adjust_the_wp_menu', 999 );
 ```
 
 + Custom menu order for Admin area
 
 ```php
-function custom_menu_order($menu_ord) {
-    if (!$menu_ord) return true;
-    return array(
+    <?php 
+    function custom_menu_order($menu_ord) {
+        if (!$menu_ord) return true;
+        return array(
 
-        'edit.php',
-        //
-    )
-}
+            'edit.php',
+            //
+        )
+    }
 
 ```
 
@@ -866,26 +872,29 @@ register_uninstall_hook('jgdm-plugin-dev', 'jgdm_uninstall_plugin');
 + Add a Dashboard widget
 
 ```php
-// Add Custom Dashboard Widget
-function add_custom_dashboard_widgets() {
 
-    wp_add_dashboard_widget(
-	    'wpexplorer_dashboard_widget', // Widget slug.
-	    'My Custom Dashboard Widget', // Title.
-	    'custom_dashboard_widget_content' // Display function.
-        );
+    <?php
+    // Add Custom Dashboard Widget
+    function add_custom_dashboard_widgets() {
+
+        wp_add_dashboard_widget(
+            'wpexplorer_dashboard_widget', // Widget slug.
+            'My Custom Dashboard Widget', // Title.
+            'custom_dashboard_widget_content' // Display function.
+            );
+        }
+
+        add_action( 'wp_dashboard_setup', 'add_custom_dashboard_widgets' );
+
+    /**
+    * Create the function to output the contents of your Dashboard Widget.
+    */
+
+    function custom_dashboard_widget_content() {
+    
+        // Display whatever it is you want to show.
+        echo "Hello there, I'm a Dashboard Widget. Edit me!";
     }
-
-	add_action( 'wp_dashboard_setup', 'add_custom_dashboard_widgets' );
-
-/**
-* Create the function to output the contents of your Dashboard Widget.
-*/
-
-	function custom_dashboard_widget_content() {
-	    // Display whatever it is you want to show.
-	    echo "Hello there, I'm a Dashboard Widget. Edit me!";
-	}
 
 ```
 
@@ -899,7 +908,6 @@ function add_custom_dashboard_widgets() {
 + WP Customizer API (in progress)
 + Plugin Development (in progress)
 
-...
 
 ## Data Backup
 
