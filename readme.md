@@ -4,6 +4,8 @@
 
 [Link](http://localhost/jgdm_wordpress_starter/assets/static_design_files/index.php)
 
+## **Theme Details**
+
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
 + **Theme Version**: v2.5.0
