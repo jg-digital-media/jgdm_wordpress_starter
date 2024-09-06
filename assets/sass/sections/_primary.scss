@@ -15,20 +15,23 @@
         }
 
         .filestamp {
+
+            display: inline-block;
             background: #dcde6e;
-            padding: 0px 10px;
+            padding: 3px;
             border-radius: 14px;
             /* border-bottom: 5px solid black; */
             width: auto;
             /* display: inline-block; */
-            height: 33px;
+            /* height: 33px; */
             text-decoration: underline;
             vertical-align: top;
             /* color: orange; */
-            width: 200px;
+            /* width: 200px; */
 
             > p {
                 color: red;   
+                margin: 0;
             }
         }
 
