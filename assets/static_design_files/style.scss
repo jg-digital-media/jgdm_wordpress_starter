@@ -1,0 +1,31 @@
+
+@import "assets/sass/inc/head";
+
+  
+//Quick CSS Reset
+  * {
+    margin: 0;
+    padding: 0; 
+  }  
+
+//configs
+@import "assets/sass/config/breakpoints";
+@import "assets/sass/config/colours";
+@import "assets/sass/config/fonts";
+@import "assets/sass/config/utilities";
+
+//sections
+@import "assets/sass/inc/header";
+
+
+//content
+@import "assets/sass/main";
+@import "assets/sass/sections/primary";
+@import "assets/sass/sections/secondary";
+@import "assets/sass/sections/wordpress";
+
+//footer
+@import "assets/sass/inc/footer.scss";
+
+
+  

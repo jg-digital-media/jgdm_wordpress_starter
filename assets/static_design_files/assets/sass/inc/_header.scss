@@ -1,0 +1,42 @@
+
+header {
+    background: $bg-primary;
+    color: $col-secondary; 
+
+    h1 {
+        text-align: center;
+        padding-top: 10px;
+        padding: 20px 0; 
+        color: $col-secondary;
+    }
+
+    nav {
+        width: 100%;
+
+        .main_nav {
+            position: relative;
+            bottom: 5px;
+            text-align: right; 
+
+            @media (max-width: 760px) {
+                text-align: center; 
+            }
+
+            li {
+                display: inline-block;
+                margin-right: 15px; 
+                
+                a {
+                    color: $link-col-secondary;
+
+                    &:hover {
+                      text-decoration: none;
+                      color: $link-hov-secondary;
+                    } 
+                }
+            }
+        }
+    }
+    
+}
+    

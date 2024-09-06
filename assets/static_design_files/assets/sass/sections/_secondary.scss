@@ -1,0 +1,131 @@
+/*Secondary - Articles Dynamic List Page*/
+
+/* aside - wordpress widget areas */
+#container aside.secondary {
+    float: right;
+    margin-right: 20px;
+    width: 40%; 
+
+    @media (max-width: 760px) {        
+        float: none; 
+    }
+
+    img#main_image {
+        width: 220px;
+        height: 220px;
+        /*  border: solid black 1px; */
+        /* border-radius: 50%; */
+        border-radius: 10px;
+        /* display: inline-block; */ 
+
+        @media (max-width: 760px) {
+            margin: 20px auto;
+            display: block;
+            width: 90%;
+            height: auto;
+        } 
+    }
+
+    .post_list,
+    .archived_posts,
+    .article_list,
+    .widget_area {
+
+        margin-top: 10px;
+    }
+
+    .post_list {
+      position: relative;
+      left: 10px;
+      margin: 20px 0; 
+
+      h3 {
+          font-size: 20pt;
+          color: $col-quaternary;
+      }
+
+      li {
+          list-style: none;
+          line-height: 1.6;                       
+                
+          @extend %list_links;
+      }
+    
+    }
+
+    .archived_posts {
+        left: 10px;
+        margin: 20px 0; 
+
+
+        h3 {
+            font-size: 20pt;
+            color: $col-quaternary;
+        }
+
+        h4 {
+            margin-top: 20px;
+            /* color: blue; */
+            color: black;
+        }
+
+        li {
+            list-style: none;
+            line-height: 1.6;                       
+                
+            @extend %list_links;
+        }
+
+    }
+
+    .article_list {
+
+        left: 10px;
+        margin: 20px 0; 
+
+        h3 {
+            font-size: 30pt;
+            color: $col-quaternary;
+
+        }
+    
+
+        li {
+            list-style: none;
+            line-height: 1.6;                       
+                
+            @extend %list_links;
+        }
+
+    }
+
+    .widget_area {
+
+        left: 10px;
+        margin: 20px 0; 
+
+
+        h3 {
+            color: $col-quaternary;
+            font-size: 20pt;
+
+        }
+
+        li {
+            list-style: none;
+            line-height: 1.6;                       
+                
+            @extend %list_links;
+
+            h2.widgettitle {
+                font-size: 14pt;
+                /* color: yellow; */
+                /* color: red; */
+                margin-top: 10px;
+                line-height: 1.6;
+            }
+        }
+
+    }
+          
+}
