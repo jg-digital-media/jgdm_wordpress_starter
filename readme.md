@@ -1,5 +1,8 @@
-# Setting up your WordPress theme.- **Last Update:** 21-04-2023 - 09:34
+# Setting up your WordPress theme.- **Last Update:** 06-09-2024 - 09:25
 
+## Preview the Static Design Files - 
+
+[Link](http://localhost/jgdm_wordpress_starter/assets/static_design_files/index.php)
 
 + **Theme Name:**: JGDM WordPress Starter Repository
 + **Theme Slug**: jgdm_wordpress_starter
