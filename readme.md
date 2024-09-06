@@ -2,7 +2,7 @@
 
 ## Preview the Static Design Files - 
 
-[Link target="_blank"](http://localhost/jgdm_wordpress_starter/assets/static_design_files/index.php)
+[Link](http://localhost/jgdm_wordpress_starter/assets/static_design_files/index.php)
 
 ## **Theme Details**
 
